@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "collections": [],
+  "fields": [],
+  "relations": [
+    {
+      "collection": "resources_projects",
+      "field": "resource_id",
+      "related_collection": "resources",
+      "meta": {
+        "many_collection": "resources_projects",
+        "many_field": "resource_id",
+        "one_collection": "resources",
+        "one_field": "projects",
+        "junction_field": "project_id",
+        "one_deselect_action": "nullify"
+      }
+    }
+  ]
+}

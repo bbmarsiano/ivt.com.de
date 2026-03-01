@@ -1,0 +1,691 @@
+{
+  "version": 1,
+  "collections": [
+    {
+      "collection": "projects",
+      "fields": [
+        {
+          "field": "id",
+          "type": "uuid",
+          "meta": {
+            "interface": "input",
+            "readonly": true,
+            "hidden": true
+          },
+          "schema": {
+            "is_primary_key": true,
+            "is_unique": true,
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "slug",
+          "type": "string",
+          "meta": {
+            "interface": "input",
+            "required": true,
+            "width": "full"
+          },
+          "schema": {
+            "is_unique": true,
+            "max_length": 255,
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "status",
+          "type": "string",
+          "meta": {
+            "interface": "select-dropdown",
+            "options": {
+              "choices": [
+                { "text": "Ongoing", "value": "ongoing" },
+                { "text": "Completed", "value": "completed" }
+              ]
+            },
+            "required": true,
+            "width": "half"
+          },
+          "schema": {
+            "max_length": 255,
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "industry",
+          "type": "string",
+          "meta": {
+            "interface": "select-dropdown",
+            "options": {
+              "choices": [
+                { "text": "Technology", "value": "tech" },
+                { "text": "Manufacturing", "value": "manufacturing" },
+                { "text": "Green Energy", "value": "green_energy" },
+                { "text": "Defense", "value": "defense" },
+                { "text": "Other", "value": "other" }
+              ]
+            },
+            "required": true,
+            "width": "half"
+          },
+          "schema": {
+            "max_length": 255,
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "title_de",
+          "type": "string",
+          "meta": {
+            "interface": "input",
+            "required": true,
+            "width": "half"
+          },
+          "schema": {
+            "max_length": 255,
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "title_en",
+          "type": "string",
+          "meta": {
+            "interface": "input",
+            "required": true,
+            "width": "half"
+          },
+          "schema": {
+            "max_length": 255,
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "summary_de",
+          "type": "text",
+          "meta": {
+            "interface": "input-multiline",
+            "required": true,
+            "width": "full"
+          },
+          "schema": {
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "summary_en",
+          "type": "text",
+          "meta": {
+            "interface": "input-multiline",
+            "required": true,
+            "width": "full"
+          },
+          "schema": {
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "description_de",
+          "type": "text",
+          "meta": {
+            "interface": "input-multiline",
+            "required": true,
+            "width": "full"
+          },
+          "schema": {
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "description_en",
+          "type": "text",
+          "meta": {
+            "interface": "input-multiline",
+            "required": true,
+            "width": "full"
+          },
+          "schema": {
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "thumbnail",
+          "type": "string",
+          "meta": {
+            "interface": "input",
+            "required": true,
+            "width": "half"
+          },
+          "schema": {
+            "max_length": 500,
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "images",
+          "type": "json",
+          "meta": {
+            "interface": "input-code",
+            "options": {
+              "language": "json"
+            },
+            "special": ["json"],
+            "required": true,
+            "width": "full"
+          },
+          "schema": {
+            "data_type": "jsonb",
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "tags",
+          "type": "json",
+          "meta": {
+            "interface": "input-code",
+            "options": {
+              "language": "json"
+            },
+            "special": ["json"],
+            "required": true,
+            "width": "full"
+          },
+          "schema": {
+            "data_type": "jsonb",
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "featured",
+          "type": "boolean",
+          "meta": {
+            "interface": "boolean",
+            "width": "half"
+          },
+          "schema": {
+            "default_value": false,
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "coordinator",
+          "type": "json",
+          "meta": {
+            "interface": "input-code",
+            "options": {
+              "language": "json"
+            },
+            "special": ["json"],
+            "required": true,
+            "width": "full"
+          },
+          "schema": {
+            "data_type": "jsonb",
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "metrics",
+          "type": "json",
+          "meta": {
+            "interface": "input-code",
+            "options": {
+              "language": "json"
+            },
+            "special": ["json"],
+            "width": "full"
+          },
+          "schema": {
+            "data_type": "jsonb",
+            "is_nullable": true
+          }
+        },
+        {
+          "field": "eligibility_de",
+          "type": "json",
+          "meta": {
+            "interface": "input-code",
+            "options": {
+              "language": "json"
+            },
+            "special": ["json"],
+            "required": true,
+            "width": "full"
+          },
+          "schema": {
+            "data_type": "jsonb",
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "eligibility_en",
+          "type": "json",
+          "meta": {
+            "interface": "input-code",
+            "options": {
+              "language": "json"
+            },
+            "special": ["json"],
+            "required": true,
+            "width": "full"
+          },
+          "schema": {
+            "data_type": "jsonb",
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "documents",
+          "type": "json",
+          "meta": {
+            "interface": "input-code",
+            "options": {
+              "language": "json"
+            },
+            "special": ["json"],
+            "required": true,
+            "width": "full"
+          },
+          "schema": {
+            "data_type": "jsonb",
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "createdAt",
+          "type": "timestamp",
+          "meta": {
+            "interface": "datetime",
+            "special": ["date-time"],
+            "required": true,
+            "width": "half"
+          },
+          "schema": {
+            "data_type": "timestamp with time zone",
+            "is_nullable": false
+          }
+        }
+      ]
+    },
+    {
+      "collection": "events",
+      "fields": [
+        {
+          "field": "id",
+          "type": "uuid",
+          "meta": {
+            "interface": "input",
+            "readonly": true,
+            "hidden": true
+          },
+          "schema": {
+            "is_primary_key": true,
+            "is_unique": true,
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "slug",
+          "type": "string",
+          "meta": {
+            "interface": "input",
+            "required": true,
+            "width": "half"
+          },
+          "schema": {
+            "is_unique": true,
+            "max_length": 255,
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "title_de",
+          "type": "string",
+          "meta": {
+            "interface": "input",
+            "required": true,
+            "width": "half"
+          },
+          "schema": {
+            "max_length": 255,
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "title_en",
+          "type": "string",
+          "meta": {
+            "interface": "input",
+            "required": true,
+            "width": "half"
+          },
+          "schema": {
+            "max_length": 255,
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "description_de",
+          "type": "text",
+          "meta": {
+            "interface": "input-multiline",
+            "required": true,
+            "width": "full"
+          },
+          "schema": {
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "description_en",
+          "type": "text",
+          "meta": {
+            "interface": "input-multiline",
+            "required": true,
+            "width": "full"
+          },
+          "schema": {
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "location",
+          "type": "string",
+          "meta": {
+            "interface": "input",
+            "required": true,
+            "width": "full"
+          },
+          "schema": {
+            "max_length": 255,
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "start_at",
+          "type": "timestamp",
+          "meta": {
+            "interface": "datetime",
+            "special": ["date-time"],
+            "required": true,
+            "width": "half"
+          },
+          "schema": {
+            "data_type": "timestamp with time zone",
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "end_at",
+          "type": "timestamp",
+          "meta": {
+            "interface": "datetime",
+            "special": ["date-time"],
+            "required": true,
+            "width": "half"
+          },
+          "schema": {
+            "data_type": "timestamp with time zone",
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "cover",
+          "type": "string",
+          "meta": {
+            "interface": "input",
+            "width": "half"
+          },
+          "schema": {
+            "max_length": 500,
+            "is_nullable": true
+          }
+        }
+      ]
+    },
+    {
+      "collection": "news",
+      "fields": [
+        {
+          "field": "id",
+          "type": "uuid",
+          "meta": {
+            "interface": "input",
+            "readonly": true,
+            "hidden": true
+          },
+          "schema": {
+            "is_primary_key": true,
+            "is_unique": true,
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "slug",
+          "type": "string",
+          "meta": {
+            "interface": "input",
+            "required": true,
+            "width": "half"
+          },
+          "schema": {
+            "is_unique": true,
+            "max_length": 255,
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "title_de",
+          "type": "string",
+          "meta": {
+            "interface": "input",
+            "required": true,
+            "width": "half"
+          },
+          "schema": {
+            "max_length": 255,
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "title_en",
+          "type": "string",
+          "meta": {
+            "interface": "input",
+            "required": true,
+            "width": "half"
+          },
+          "schema": {
+            "max_length": 255,
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "summary_de",
+          "type": "text",
+          "meta": {
+            "interface": "input-multiline",
+            "required": true,
+            "width": "full"
+          },
+          "schema": {
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "summary_en",
+          "type": "text",
+          "meta": {
+            "interface": "input-multiline",
+            "required": true,
+            "width": "full"
+          },
+          "schema": {
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "published_at",
+          "type": "timestamp",
+          "meta": {
+            "interface": "datetime",
+            "special": ["date-time"],
+            "required": true,
+            "width": "half"
+          },
+          "schema": {
+            "data_type": "timestamp with time zone",
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "cover",
+          "type": "string",
+          "meta": {
+            "interface": "input",
+            "width": "half"
+          },
+          "schema": {
+            "max_length": 500,
+            "is_nullable": true
+          }
+        },
+        {
+          "field": "tags",
+          "type": "json",
+          "meta": {
+            "interface": "input-code",
+            "options": {
+              "language": "json"
+            },
+            "special": ["json"],
+            "required": true,
+            "width": "full"
+          },
+          "schema": {
+            "data_type": "jsonb",
+            "is_nullable": false
+          }
+        }
+      ]
+    },
+    {
+      "collection": "testimonials",
+      "fields": [
+        {
+          "field": "id",
+          "type": "uuid",
+          "meta": {
+            "interface": "input",
+            "readonly": true,
+            "hidden": true
+          },
+          "schema": {
+            "is_primary_key": true,
+            "is_unique": true,
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "quote_de",
+          "type": "text",
+          "meta": {
+            "interface": "input-multiline",
+            "required": true,
+            "width": "full"
+          },
+          "schema": {
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "quote_en",
+          "type": "text",
+          "meta": {
+            "interface": "input-multiline",
+            "required": true,
+            "width": "full"
+          },
+          "schema": {
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "author_name",
+          "type": "string",
+          "meta": {
+            "interface": "input",
+            "required": true,
+            "width": "half"
+          },
+          "schema": {
+            "max_length": 255,
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "author_title_de",
+          "type": "string",
+          "meta": {
+            "interface": "input",
+            "required": true,
+            "width": "half"
+          },
+          "schema": {
+            "max_length": 255,
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "author_title_en",
+          "type": "string",
+          "meta": {
+            "interface": "input",
+            "required": true,
+            "width": "half"
+          },
+          "schema": {
+            "max_length": 255,
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "company_name",
+          "type": "string",
+          "meta": {
+            "interface": "input",
+            "required": true,
+            "width": "half"
+          },
+          "schema": {
+            "max_length": 255,
+            "is_nullable": false
+          }
+        },
+        {
+          "field": "company_logo",
+          "type": "string",
+          "meta": {
+            "interface": "input",
+            "width": "half"
+          },
+          "schema": {
+            "max_length": 500,
+            "is_nullable": true
+          }
+        },
+        {
+          "field": "featured",
+          "type": "boolean",
+          "meta": {
+            "interface": "boolean",
+            "width": "half"
+          },
+          "schema": {
+            "default_value": false,
+            "is_nullable": false
+          }
+        }
+      ]
+    }
+  ]
+}

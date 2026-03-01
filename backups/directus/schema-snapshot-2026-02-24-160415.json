@@ -1,0 +1,1059 @@
+{
+  "data": {
+    "version": 1,
+    "directus": "11.14.1",
+    "vendor": "postgres",
+    "collections": [
+      {
+        "collection": "about",
+        "meta": {
+          "accountability": "all",
+          "archive_app_filter": true,
+          "archive_field": null,
+          "archive_value": null,
+          "collapse": "open",
+          "collection": "about",
+          "color": null,
+          "display_template": null,
+          "group": null,
+          "hidden": false,
+          "icon": "info",
+          "item_duplication_fields": null,
+          "note": "About section (CMS)",
+          "preview_url": null,
+          "singleton": true,
+          "sort": 40,
+          "sort_field": null,
+          "translations": null,
+          "unarchive_value": null,
+          "versioning": false
+        },
+        "schema": {
+          "name": "about"
+        }
+      },
+      {
+        "collection": "events",
+        "meta": {
+          "accountability": "all",
+          "archive_app_filter": true,
+          "archive_field": null,
+          "archive_value": null,
+          "collapse": "open",
+          "collection": "events",
+          "color": null,
+          "display_template": null,
+          "group": null,
+          "hidden": false,
+          "icon": null,
+          "item_duplication_fields": null,
+          "note": null,
+          "preview_url": null,
+          "singleton": false,
+          "sort": null,
+          "sort_field": null,
+          "translations": null,
+          "unarchive_value": null,
+          "versioning": false
+        },
+        "schema": {
+          "name": "events"
+        }
+      },
+      {
+        "collection": "news",
+        "meta": {
+          "accountability": "all",
+          "archive_app_filter": true,
+          "archive_field": null,
+          "archive_value": null,
+          "collapse": "open",
+          "collection": "news",
+          "color": null,
+          "display_template": null,
+          "group": null,
+          "hidden": false,
+          "icon": null,
+          "item_duplication_fields": null,
+          "note": null,
+          "preview_url": null,
+          "singleton": false,
+          "sort": null,
+          "sort_field": null,
+          "translations": null,
+          "unarchive_value": null,
+          "versioning": false
+        },
+        "schema": {
+          "name": "news"
+        }
+      },
+      {
+        "collection": "partners",
+        "meta": {
+          "accountability": "all",
+          "archive_app_filter": true,
+          "archive_field": null,
+          "archive_value": null,
+          "collapse": "open",
+          "collection": "partners",
+          "color": null,
+          "display_template": null,
+          "group": null,
+          "hidden": false,
+          "icon": null,
+          "item_duplication_fields": null,
+          "note": null,
+          "preview_url": null,
+          "singleton": false,
+          "sort": null,
+          "sort_field": null,
+          "translations": null,
+          "unarchive_value": null,
+          "versioning": false
+        },
+        "schema": {
+          "name": "partners"
+        }
+      },
+      {
+        "collection": "projects",
+        "meta": {
+          "accountability": "all",
+          "archive_app_filter": true,
+          "archive_field": null,
+          "archive_value": null,
+          "collapse": "open",
+          "collection": "projects",
+          "color": null,
+          "display_template": null,
+          "group": null,
+          "hidden": false,
+          "icon": null,
+          "item_duplication_fields": null,
+          "note": null,
+          "preview_url": null,
+          "singleton": false,
+          "sort": null,
+          "sort_field": null,
+          "translations": null,
+          "unarchive_value": null,
+          "versioning": false
+        },
+        "schema": {
+          "name": "projects"
+        }
+      },
+      {
+        "collection": "resources",
+        "meta": {
+          "accountability": "all",
+          "archive_app_filter": true,
+          "archive_field": null,
+          "archive_value": null,
+          "collapse": "open",
+          "collection": "resources",
+          "color": null,
+          "display_template": null,
+          "group": null,
+          "hidden": false,
+          "icon": null,
+          "item_duplication_fields": null,
+          "note": null,
+          "preview_url": null,
+          "singleton": false,
+          "sort": null,
+          "sort_field": null,
+          "translations": null,
+          "unarchive_value": null,
+          "versioning": false
+        },
+        "schema": {
+          "name": "resources"
+        }
+      },
+      {
+        "collection": "resources_categories",
+        "meta": {
+          "accountability": "all",
+          "archive_app_filter": true,
+          "archive_field": null,
+          "archive_value": null,
+          "collapse": "open",
+          "collection": "resources_categories",
+          "color": null,
+          "display_template": null,
+          "group": null,
+          "hidden": true,
+          "icon": "label",
+          "item_duplication_fields": null,
+          "note": "Junction: resources ↔ categories",
+          "preview_url": null,
+          "singleton": false,
+          "sort": null,
+          "sort_field": null,
+          "translations": null,
+          "unarchive_value": null,
+          "versioning": false
+        },
+        "schema": {
+          "name": "resources_categories"
+        }
+      },
+      {
+        "collection": "resources_projects",
+        "meta": {
+          "accountability": "all",
+          "archive_app_filter": true,
+          "archive_field": null,
+          "archive_value": null,
+          "collapse": "open",
+          "collection": "resources_projects",
+          "color": null,
+          "display_template": null,
+          "group": null,
+          "hidden": true,
+          "icon": "link",
+          "item_duplication_fields": null,
+          "note": "Junction: resources ↔ projects",
+          "preview_url": null,
+          "singleton": false,
+          "sort": null,
+          "sort_field": null,
+          "translations": null,
+          "unarchive_value": null,
+          "versioning": false
+        },
+        "schema": {
+          "name": "resources_projects"
+        }
+      },
+      {
+        "collection": "team",
+        "meta": {
+          "accountability": "all",
+          "archive_app_filter": true,
+          "archive_field": null,
+          "archive_value": null,
+          "collapse": "open",
+          "collection": "team",
+          "color": null,
+          "display_template": "{{first_name}} {{last_name}}",
+          "group": null,
+          "hidden": false,
+          "icon": "groups",
+          "item_duplication_fields": null,
+          "note": "Team members (CMS)",
+          "preview_url": null,
+          "singleton": false,
+          "sort": 50,
+          "sort_field": null,
+          "translations": null,
+          "unarchive_value": null,
+          "versioning": false
+        },
+        "schema": {
+          "name": "team"
+        }
+      },
+      {
+        "collection": "testimonials",
+        "meta": {
+          "accountability": "all",
+          "archive_app_filter": true,
+          "archive_field": null,
+          "archive_value": null,
+          "collapse": "open",
+          "collection": "testimonials",
+          "color": null,
+          "display_template": null,
+          "group": null,
+          "hidden": false,
+          "icon": null,
+          "item_duplication_fields": null,
+          "note": null,
+          "preview_url": null,
+          "singleton": false,
+          "sort": null,
+          "sort_field": null,
+          "translations": null,
+          "unarchive_value": null,
+          "versioning": false
+        },
+        "schema": {
+          "name": "testimonials"
+        }
+      }
+    ],
+    "fields": [
+      {
+        "collection": "about",
+        "field": "hero_image_file",
+        "type": "uuid",
+        "meta": {
+          "collection": "about",
+          "conditions": null,
+          "display": "file",
+          "display_options": {
+            "crop": true
+          },
+          "field": "hero_image_file",
+          "group": null,
+          "hidden": false,
+          "interface": "file-image",
+          "note": null,
+          "options": null,
+          "readonly": false,
+          "required": false,
+          "searchable": true,
+          "sort": 10,
+          "special": [
+            "file"
+          ],
+          "translations": null,
+          "validation": null,
+          "validation_message": null,
+          "width": "full"
+        },
+        "schema": {
+          "name": "hero_image_file",
+          "table": "about",
+          "data_type": "uuid",
+          "default_value": null,
+          "max_length": null,
+          "numeric_precision": null,
+          "numeric_scale": null,
+          "is_nullable": true,
+          "is_unique": false,
+          "is_indexed": false,
+          "is_primary_key": false,
+          "is_generated": false,
+          "generation_expression": null,
+          "has_auto_increment": false,
+          "foreign_key_table": "directus_files",
+          "foreign_key_column": "id"
+        }
+      },
+      {
+        "collection": "events",
+        "field": "id",
+        "type": "uuid",
+        "meta": {
+          "collection": "events",
+          "conditions": null,
+          "display": null,
+          "display_options": null,
+          "field": "id",
+          "group": null,
+          "hidden": true,
+          "interface": "input",
+          "note": null,
+          "options": null,
+          "readonly": true,
+          "required": false,
+          "searchable": true,
+          "sort": 1,
+          "special": [
+            "uuid"
+          ],
+          "translations": null,
+          "validation": null,
+          "validation_message": null,
+          "width": "full"
+        },
+        "schema": {
+          "name": "id",
+          "table": "events",
+          "data_type": "uuid",
+          "default_value": null,
+          "max_length": null,
+          "numeric_precision": null,
+          "numeric_scale": null,
+          "is_nullable": false,
+          "is_unique": true,
+          "is_indexed": false,
+          "is_primary_key": true,
+          "is_generated": false,
+          "generation_expression": null,
+          "has_auto_increment": false,
+          "foreign_key_table": null,
+          "foreign_key_column": null
+        }
+      },
+      {
+        "collection": "news",
+        "field": "id",
+        "type": "uuid",
+        "meta": {
+          "collection": "news",
+          "conditions": null,
+          "display": null,
+          "display_options": null,
+          "field": "id",
+          "group": null,
+          "hidden": true,
+          "interface": "input",
+          "note": null,
+          "options": null,
+          "readonly": true,
+          "required": false,
+          "searchable": true,
+          "sort": 1,
+          "special": [
+            "uuid"
+          ],
+          "translations": null,
+          "validation": null,
+          "validation_message": null,
+          "width": "full"
+        },
+        "schema": {
+          "name": "id",
+          "table": "news",
+          "data_type": "uuid",
+          "default_value": null,
+          "max_length": null,
+          "numeric_precision": null,
+          "numeric_scale": null,
+          "is_nullable": false,
+          "is_unique": true,
+          "is_indexed": false,
+          "is_primary_key": true,
+          "is_generated": false,
+          "generation_expression": null,
+          "has_auto_increment": false,
+          "foreign_key_table": null,
+          "foreign_key_column": null
+        }
+      },
+      {
+        "collection": "partners",
+        "field": "id",
+        "type": "uuid",
+        "meta": {
+          "collection": "partners",
+          "conditions": null,
+          "display": null,
+          "display_options": null,
+          "field": "id",
+          "group": null,
+          "hidden": true,
+          "interface": "input",
+          "note": null,
+          "options": null,
+          "readonly": true,
+          "required": false,
+          "searchable": true,
+          "sort": 1,
+          "special": [
+            "uuid"
+          ],
+          "translations": null,
+          "validation": null,
+          "validation_message": null,
+          "width": "full"
+        },
+        "schema": {
+          "name": "id",
+          "table": "partners",
+          "data_type": "uuid",
+          "default_value": null,
+          "max_length": null,
+          "numeric_precision": null,
+          "numeric_scale": null,
+          "is_nullable": false,
+          "is_unique": true,
+          "is_indexed": false,
+          "is_primary_key": true,
+          "is_generated": false,
+          "generation_expression": null,
+          "has_auto_increment": false,
+          "foreign_key_table": null,
+          "foreign_key_column": null
+        }
+      },
+      {
+        "collection": "partners",
+        "field": "logo_file",
+        "type": "uuid",
+        "meta": {
+          "collection": "partners",
+          "conditions": null,
+          "display": null,
+          "display_options": null,
+          "field": "logo_file",
+          "group": null,
+          "hidden": false,
+          "interface": "file-image",
+          "note": null,
+          "options": null,
+          "readonly": false,
+          "required": false,
+          "searchable": true,
+          "sort": 2,
+          "special": [
+            "file"
+          ],
+          "translations": null,
+          "validation": null,
+          "validation_message": null,
+          "width": "full"
+        },
+        "schema": {
+          "name": "logo_file",
+          "table": "partners",
+          "data_type": "uuid",
+          "default_value": null,
+          "max_length": null,
+          "numeric_precision": null,
+          "numeric_scale": null,
+          "is_nullable": true,
+          "is_unique": false,
+          "is_indexed": false,
+          "is_primary_key": false,
+          "is_generated": false,
+          "generation_expression": null,
+          "has_auto_increment": false,
+          "foreign_key_table": "directus_files",
+          "foreign_key_column": "id"
+        }
+      },
+      {
+        "collection": "projects",
+        "field": "id",
+        "type": "uuid",
+        "meta": {
+          "collection": "projects",
+          "conditions": null,
+          "display": null,
+          "display_options": null,
+          "field": "id",
+          "group": null,
+          "hidden": true,
+          "interface": "input",
+          "note": null,
+          "options": null,
+          "readonly": true,
+          "required": false,
+          "searchable": true,
+          "sort": 1,
+          "special": [
+            "uuid"
+          ],
+          "translations": null,
+          "validation": null,
+          "validation_message": null,
+          "width": "full"
+        },
+        "schema": {
+          "name": "id",
+          "table": "projects",
+          "data_type": "uuid",
+          "default_value": null,
+          "max_length": null,
+          "numeric_precision": null,
+          "numeric_scale": null,
+          "is_nullable": false,
+          "is_unique": true,
+          "is_indexed": false,
+          "is_primary_key": true,
+          "is_generated": false,
+          "generation_expression": null,
+          "has_auto_increment": false,
+          "foreign_key_table": null,
+          "foreign_key_column": null
+        }
+      },
+      {
+        "collection": "projects",
+        "field": "resources",
+        "type": "alias",
+        "meta": {
+          "collection": "projects",
+          "conditions": null,
+          "display": null,
+          "display_options": null,
+          "field": "resources",
+          "group": null,
+          "hidden": false,
+          "interface": "list-m2m",
+          "note": "M2M: projects ↔ resources",
+          "options": null,
+          "readonly": false,
+          "required": false,
+          "searchable": true,
+          "sort": 80,
+          "special": [
+            "m2m"
+          ],
+          "translations": null,
+          "validation": null,
+          "validation_message": null,
+          "width": "full"
+        }
+      },
+      {
+        "collection": "resource_categories",
+        "field": "resources",
+        "type": "alias",
+        "meta": {
+          "collection": "resource_categories",
+          "conditions": null,
+          "display": null,
+          "display_options": null,
+          "field": "resources",
+          "group": null,
+          "hidden": false,
+          "interface": "list-m2m",
+          "note": "M2M: resource_categories ↔ resources",
+          "options": null,
+          "readonly": false,
+          "required": false,
+          "searchable": true,
+          "sort": 50,
+          "special": [
+            "m2m"
+          ],
+          "translations": null,
+          "validation": null,
+          "validation_message": null,
+          "width": "full"
+        }
+      },
+      {
+        "collection": "resources",
+        "field": "categories",
+        "type": "alias",
+        "meta": {
+          "collection": "resources",
+          "conditions": null,
+          "display": null,
+          "display_options": null,
+          "field": "categories",
+          "group": null,
+          "hidden": false,
+          "interface": "list-m2m",
+          "note": "M2M: resources ↔ resource_categories",
+          "options": null,
+          "readonly": false,
+          "required": false,
+          "searchable": true,
+          "sort": 50,
+          "special": [
+            "m2m"
+          ],
+          "translations": null,
+          "validation": null,
+          "validation_message": null,
+          "width": "full"
+        }
+      },
+      {
+        "collection": "resources",
+        "field": "file_id",
+        "type": "uuid",
+        "meta": {
+          "collection": "resources",
+          "conditions": null,
+          "display": "file",
+          "display_options": null,
+          "field": "file_id",
+          "group": null,
+          "hidden": false,
+          "interface": "file",
+          "note": "Upload file OR set external URL. Prefer file for PDFs.",
+          "options": {
+            "folder": null
+          },
+          "readonly": false,
+          "required": false,
+          "searchable": true,
+          "sort": null,
+          "special": [
+            "file"
+          ],
+          "translations": null,
+          "validation": null,
+          "validation_message": null,
+          "width": "full"
+        },
+        "schema": {
+          "name": "file_id",
+          "table": "resources",
+          "data_type": "uuid",
+          "default_value": null,
+          "max_length": null,
+          "numeric_precision": null,
+          "numeric_scale": null,
+          "is_nullable": true,
+          "is_unique": false,
+          "is_indexed": false,
+          "is_primary_key": false,
+          "is_generated": false,
+          "generation_expression": null,
+          "has_auto_increment": false,
+          "foreign_key_table": "directus_files",
+          "foreign_key_column": "id"
+        }
+      },
+      {
+        "collection": "resources",
+        "field": "external_url",
+        "type": "string",
+        "meta": {
+          "collection": "resources",
+          "conditions": null,
+          "display": "raw",
+          "display_options": null,
+          "field": "external_url",
+          "group": null,
+          "hidden": false,
+          "interface": "input",
+          "note": "Used when no file upload is attached.",
+          "options": {
+            "placeholder": "https://example.com/resource.pdf",
+            "type": "url"
+          },
+          "readonly": false,
+          "required": false,
+          "searchable": true,
+          "sort": null,
+          "special": null,
+          "translations": null,
+          "validation": null,
+          "validation_message": null,
+          "width": "full"
+        },
+        "schema": {
+          "name": "external_url",
+          "table": "resources",
+          "data_type": "character varying",
+          "default_value": null,
+          "max_length": 1000,
+          "numeric_precision": null,
+          "numeric_scale": null,
+          "is_nullable": true,
+          "is_unique": false,
+          "is_indexed": false,
+          "is_primary_key": false,
+          "is_generated": false,
+          "generation_expression": null,
+          "has_auto_increment": false,
+          "foreign_key_table": null,
+          "foreign_key_column": null
+        }
+      },
+      {
+        "collection": "resources_projects",
+        "field": "resource_id",
+        "type": "uuid",
+        "meta": {
+          "collection": "resources_projects",
+          "conditions": null,
+          "display": null,
+          "display_options": null,
+          "field": "resource_id",
+          "group": null,
+          "hidden": false,
+          "interface": null,
+          "note": null,
+          "options": null,
+          "readonly": false,
+          "required": false,
+          "searchable": true,
+          "sort": null,
+          "special": [
+            "uuid"
+          ],
+          "translations": null,
+          "validation": null,
+          "validation_message": null,
+          "width": "full"
+        },
+        "schema": {
+          "name": "resource_id",
+          "table": "resources_projects",
+          "data_type": "uuid",
+          "default_value": null,
+          "max_length": null,
+          "numeric_precision": null,
+          "numeric_scale": null,
+          "is_nullable": false,
+          "is_unique": false,
+          "is_indexed": true,
+          "is_primary_key": false,
+          "is_generated": false,
+          "generation_expression": null,
+          "has_auto_increment": false,
+          "foreign_key_table": "resources",
+          "foreign_key_column": "id"
+        }
+      },
+      {
+        "collection": "resources_projects",
+        "field": "project_id",
+        "type": "uuid",
+        "meta": {
+          "collection": "resources_projects",
+          "conditions": null,
+          "display": null,
+          "display_options": null,
+          "field": "project_id",
+          "group": null,
+          "hidden": false,
+          "interface": null,
+          "note": null,
+          "options": null,
+          "readonly": false,
+          "required": false,
+          "searchable": true,
+          "sort": null,
+          "special": [
+            "uuid"
+          ],
+          "translations": null,
+          "validation": null,
+          "validation_message": null,
+          "width": "full"
+        },
+        "schema": {
+          "name": "project_id",
+          "table": "resources_projects",
+          "data_type": "uuid",
+          "default_value": null,
+          "max_length": null,
+          "numeric_precision": null,
+          "numeric_scale": null,
+          "is_nullable": false,
+          "is_unique": false,
+          "is_indexed": true,
+          "is_primary_key": false,
+          "is_generated": false,
+          "generation_expression": null,
+          "has_auto_increment": false,
+          "foreign_key_table": "projects",
+          "foreign_key_column": "id"
+        }
+      },
+      {
+        "collection": "team",
+        "field": "avatar_file",
+        "type": "uuid",
+        "meta": {
+          "collection": "team",
+          "conditions": null,
+          "display": "file",
+          "display_options": {
+            "crop": true
+          },
+          "field": "avatar_file",
+          "group": null,
+          "hidden": false,
+          "interface": "file-image",
+          "note": null,
+          "options": null,
+          "readonly": false,
+          "required": false,
+          "searchable": true,
+          "sort": 50,
+          "special": [
+            "file"
+          ],
+          "translations": null,
+          "validation": null,
+          "validation_message": null,
+          "width": "half"
+        },
+        "schema": {
+          "name": "avatar_file",
+          "table": "team",
+          "data_type": "uuid",
+          "default_value": null,
+          "max_length": null,
+          "numeric_precision": null,
+          "numeric_scale": null,
+          "is_nullable": true,
+          "is_unique": false,
+          "is_indexed": false,
+          "is_primary_key": false,
+          "is_generated": false,
+          "generation_expression": null,
+          "has_auto_increment": false,
+          "foreign_key_table": "directus_files",
+          "foreign_key_column": "id"
+        }
+      },
+      {
+        "collection": "testimonials",
+        "field": "id",
+        "type": "uuid",
+        "meta": {
+          "collection": "testimonials",
+          "conditions": null,
+          "display": null,
+          "display_options": null,
+          "field": "id",
+          "group": null,
+          "hidden": true,
+          "interface": "input",
+          "note": null,
+          "options": null,
+          "readonly": true,
+          "required": false,
+          "searchable": true,
+          "sort": 1,
+          "special": [
+            "uuid"
+          ],
+          "translations": null,
+          "validation": null,
+          "validation_message": null,
+          "width": "full"
+        },
+        "schema": {
+          "name": "id",
+          "table": "testimonials",
+          "data_type": "uuid",
+          "default_value": null,
+          "max_length": null,
+          "numeric_precision": null,
+          "numeric_scale": null,
+          "is_nullable": false,
+          "is_unique": true,
+          "is_indexed": false,
+          "is_primary_key": true,
+          "is_generated": false,
+          "generation_expression": null,
+          "has_auto_increment": false,
+          "foreign_key_table": null,
+          "foreign_key_column": null
+        }
+      }
+    ],
+    "systemFields": [
+      {
+        "collection": "directus_activity",
+        "field": "timestamp",
+        "schema": {
+          "is_indexed": true
+        }
+      },
+      {
+        "collection": "directus_revisions",
+        "field": "activity",
+        "schema": {
+          "is_indexed": true
+        }
+      },
+      {
+        "collection": "directus_revisions",
+        "field": "parent",
+        "schema": {
+          "is_indexed": true
+        }
+      }
+    ],
+    "relations": [
+      {
+        "collection": "partners",
+        "field": "logo_file",
+        "related_collection": "directus_files",
+        "meta": {
+          "junction_field": null,
+          "many_collection": "partners",
+          "many_field": "logo_file",
+          "one_allowed_collections": null,
+          "one_collection": "directus_files",
+          "one_collection_field": null,
+          "one_deselect_action": "nullify",
+          "one_field": null,
+          "sort_field": null
+        },
+        "schema": {
+          "table": "partners",
+          "column": "logo_file",
+          "foreign_key_table": "directus_files",
+          "foreign_key_column": "id",
+          "constraint_name": "partners_logo_file_foreign",
+          "on_update": "NO ACTION",
+          "on_delete": "SET NULL"
+        }
+      },
+      {
+        "collection": "resources_categories",
+        "field": "resource_id",
+        "related_collection": "resources",
+        "meta": {
+          "junction_field": "category_id",
+          "many_collection": "resources_categories",
+          "many_field": "resource_id",
+          "one_allowed_collections": null,
+          "one_collection": "resources",
+          "one_collection_field": null,
+          "one_deselect_action": "nullify",
+          "one_field": "categories",
+          "sort_field": null
+        },
+        "schema": {
+          "table": "resources_categories",
+          "column": "resource_id",
+          "foreign_key_table": "resources",
+          "foreign_key_column": "id",
+          "constraint_name": "resources_categories_resource_id_fkey",
+          "on_update": "NO ACTION",
+          "on_delete": "CASCADE"
+        }
+      },
+      {
+        "collection": "resources_categories",
+        "field": "category_id",
+        "related_collection": "resource_categories",
+        "meta": {
+          "junction_field": "resource_id",
+          "many_collection": "resources_categories",
+          "many_field": "category_id",
+          "one_allowed_collections": null,
+          "one_collection": "resource_categories",
+          "one_collection_field": null,
+          "one_deselect_action": "nullify",
+          "one_field": "resources",
+          "sort_field": null
+        },
+        "schema": {
+          "table": "resources_categories",
+          "column": "category_id",
+          "foreign_key_table": "resource_categories",
+          "foreign_key_column": "id",
+          "constraint_name": "resources_categories_category_id_fkey",
+          "on_update": "NO ACTION",
+          "on_delete": "CASCADE"
+        }
+      },
+      {
+        "collection": "resources_projects",
+        "field": "project_id",
+        "related_collection": "projects",
+        "meta": {
+          "junction_field": "resource_id",
+          "many_collection": "resources_projects",
+          "many_field": "project_id",
+          "one_allowed_collections": null,
+          "one_collection": "projects",
+          "one_collection_field": null,
+          "one_deselect_action": "nullify",
+          "one_field": "resources",
+          "sort_field": null
+        },
+        "schema": {
+          "table": "resources_projects",
+          "column": "project_id",
+          "foreign_key_table": "projects",
+          "foreign_key_column": "id",
+          "constraint_name": "resources_projects_project_id_fkey",
+          "on_update": "NO ACTION",
+          "on_delete": "CASCADE"
+        }
+      }
+    ]
+  }
+}

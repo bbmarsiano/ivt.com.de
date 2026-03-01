@@ -1,0 +1,67 @@
+Fix /projects resources counts (Directus aggregate/groupBy parsing).
+
+Context:
+- Junction rows exist in Directus: items/resources_projects returns rows.
+- Project detail page correctly shows Resources section based on junction.
+- But /projects list shows Resources: 0 for all projects.
+
+Goal:
+- Implement robust Directus aggregate+groupBy parsing for resources counts.
+- Ensure counts are merged into projects by project.id (NOT slug).
+- Add debug output in /api/debug/cms to expose the computed counts map and raw aggregate response (DEV only).
+
+Changes:
+
+1) services/directusContentService.ts
+Add/Update method:
+
+async getResourcesCountsByProject(): Promise<{ raw: any; countsByProjectId: Record<string, number> }>
+
+Implementation:
+- Call:
+  GET /items/resources_projects?aggregate[count]=*&groupBy[]=project_id
+  with cache:'no-store'
+- Return both:
+  - raw response JSON
+  - countsByProjectId map
+
+Parsing rule (robust):
+For each row in response.data:
+  const pid = row.project_id
+  const c =
+    row.count ??
+    row.count?.['*'] ??
+    row.count?.id ??
+    row.count?.resource_id ??
+    row.count?.project_id ??
+    row?.['count(*)'] ??
+    0
+  Convert to number safely:
+    const n = typeof c === 'number' ? c : Number(c ?? 0)
+  countsByProjectId[pid] = Number.isFinite(n) ? n : 0
+
+Log:
+[IVT][CMS] source=DIRECTUS ... fn=getResourcesCountsByProject rows=<len> uniqueProjects=<len>
+
+2) services/contentService.ts
+Update getProjectsAsync() (or the function that prepares project list for /projects):
+- If Directus enabled:
+  - fetch projects normally (already works)
+  - fetch counts using directusContentService.getResourcesCountsByProject()
+  - merge counts by matching project.id:
+      project.resourcesCount = countsByProjectId[project.id] ?? 0
+- Only fall back on error.
+
+Also ensure the UI reads `resourcesCount` from the server-provided projects list.
+
+3) app/api/debug/cms/route.ts
+Add two fields:
+- directusResourcesProjectsAggregateRaw: raw response from getResourcesCountsByProject()
+- directusResourcesCountsByProjectId: computed map
+
+Ensure no secrets exposed.
+
+Acceptance criteria:
+- curl http://localhost:3000/api/debug/cms shows non-empty directusResourcesCountsByProjectId (matching the existing junction rows)
+- /projects shows Resources: 1 for renewable-energy-grid and correct counts for others based on junction
+- No mocks used when Directus calls succeed.

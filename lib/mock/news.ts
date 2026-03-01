@@ -1,0 +1,61 @@
+import type { NewsPost } from '@/lib/types/content';
+
+export type NewsItem = NewsPost;
+
+export const mockNews: NewsItem[] = [
+  {
+    id: '1',
+    slug: 'neue-foerderprogramme-2024',
+    title_de: 'Neue Förderprogramme für KI und Digitalisierung angekündigt',
+    title_en: 'New Funding Programs for AI and Digitalization Announced',
+    summary_de: 'Innovation Valley Thüringen startet umfangreiche Förderprogramme mit einem Volumen von über 50 Millionen Euro für innovative Projekte in den Bereichen Künstliche Intelligenz und digitale Transformation.',
+    summary_en: 'Innovation Valley Thuringia launches comprehensive funding programs with a volume of over 50 million euros for innovative projects in artificial intelligence and digital transformation.',
+    published_at: '2024-01-20T09:00:00Z',
+    cover: 'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg',
+    tags: ['Förderung', 'KI', 'Digitalisierung'],
+  },
+  {
+    id: '2',
+    slug: 'ki-startup-series-a',
+    title_de: 'Thüringer KI-Start-up sichert sich 15 Millionen Euro Series-A-Finanzierung',
+    title_en: 'Thuringian AI Startup Secures 15 Million Euro Series A Funding',
+    summary_de: 'Ein aus dem Innovation Valley hervorgegangenes Start-up im Bereich autonome Systeme konnte eine erfolgreiche Series-A-Finanzierungsrunde abschließen und plant nun die internationale Expansion.',
+    summary_en: 'A startup from Innovation Valley in the field of autonomous systems has successfully completed a Series A financing round and is now planning international expansion.',
+    published_at: '2024-01-15T14:30:00Z',
+    cover: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg',
+    tags: ['Start-up', 'Investment', 'KI'],
+  },
+  {
+    id: '3',
+    slug: 'gruene-energie-durchbruch',
+    title_de: 'Durchbruch bei Energiespeicher-Technologie',
+    title_en: 'Breakthrough in Energy Storage Technology',
+    summary_de: 'Forscher des Innovation Valley haben eine neue Methode zur Energiespeicherung entwickelt, die die Effizienz um 40% steigert und die Kosten deutlich senkt.',
+    summary_en: 'Researchers at Innovation Valley have developed a new method for energy storage that increases efficiency by 40% and significantly reduces costs.',
+    published_at: '2024-01-10T11:00:00Z',
+    cover: 'https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg',
+    tags: ['Forschung', 'Grüne Energie', 'Innovation'],
+  },
+  {
+    id: '4',
+    slug: 'neue-partnerschaften',
+    title_de: 'Innovation Valley erweitert internationales Partnernetzwerk',
+    title_en: 'Innovation Valley Expands International Partner Network',
+    summary_de: 'Strategische Partnerschaften mit führenden Technologie-Clustern in Europa und Asien stärken die Position Thüringens als innovativen Wirtschaftsstandort.',
+    summary_en: 'Strategic partnerships with leading technology clusters in Europe and Asia strengthen Thuringia\'s position as an innovative business location.',
+    published_at: '2024-01-05T10:00:00Z',
+    cover: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg',
+    tags: ['Partnerschaften', 'International', 'Netzwerk'],
+  },
+  {
+    id: '5',
+    slug: 'manufacturing-excellence',
+    title_de: 'Neue Produktionsstätte für intelligente Fertigung eröffnet',
+    title_en: 'New Production Facility for Smart Manufacturing Opens',
+    summary_de: 'Mit modernster Industrie 4.0-Technologie ausgestattet, bietet die neue Demonstrationsfabrik ideale Bedingungen für die Entwicklung zukunftsfähiger Produktionsprozesse.',
+    summary_en: 'Equipped with state-of-the-art Industry 4.0 technology, the new demonstration factory offers ideal conditions for developing future-proof production processes.',
+    published_at: '2023-12-20T09:00:00Z',
+    cover: 'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg',
+    tags: ['Fertigung', 'Industrie 4.0', 'Infrastruktur'],
+  },
+];

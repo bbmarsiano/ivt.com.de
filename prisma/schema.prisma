@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ApplicationStatus {
+  pending_confirmation
+  confirmed
+  forwarded
+}
+
+model ProjectApplication {
+  id                     String             @id @default(uuid())
+  projectSlug            String
+  status                 ApplicationStatus @default(pending_confirmation)
+  companyName            String
+  companyEmail           String
+  companyWebsite         String
+  contactPerson           String
+  contactDetails          String
+  message                String
+  confirmationToken      String            @unique
+  confirmationExpiresAt  DateTime
+  confirmedAt            DateTime?
+  forwardedAt            DateTime?
+  coordinatorEmail       String
+  createdAt              DateTime          @default(now())
+  updatedAt              DateTime          @updatedAt
+
+  @@index([confirmationToken])
+  @@index([projectSlug])
+  @@index([status])
+}

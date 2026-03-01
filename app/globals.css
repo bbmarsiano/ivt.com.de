@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', sans-serif;
+
+    /* =========================
+       IVT Brand Tokens (additive)
+       ========================= */
+    --ivt-peach: #f9aa8f;
+    --ivt-red: #ed1c24;
+    --ivt-burgundy: #9a061a;
+
+    --ivt-gray-500: #8f8f8f;
+    --ivt-gray-600: #636363;
+    --ivt-gray-700: #3d3d3d;
+
+    /* IVT RGB helpers (for hsl() mapping) */
+    --ivt-red-rgb: 237 28 36;       /* #ed1c24 */
+    --ivt-burgundy-rgb: 154 6 26;   /* #9a061a */
+    --ivt-peach-rgb: 249 170 143;   /* #f9aa8f */
+
+    /* map to app tokens (CSS color vars) */
+    --color-primary: var(--ivt-red);
+    --color-primary-dark: var(--ivt-burgundy);
+    --color-accent: var(--ivt-peach);
+
+    --color-text: #111111;
+    --color-muted: var(--ivt-gray-600);
+    --color-border: rgba(0, 0, 0, 0.10);
+
+    /* =========================
+       shadcn/ui tokens (HSL) - keep structure
+       ========================= */
+    --background: 0 0% 100%;
+    --foreground: 216 12% 16%;
+    --card: 0 0% 100%;
+    --card-foreground: 216 12% 16%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 216 12% 16%;
+
+    /* Replace previous blue primary with IVT red (HSL components) */
+    --primary: 355 85% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 216 12% 16%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Accent becomes IVT peach */
+    --accent: 14 88% 77%;
+    --accent-foreground: 216 12% 16%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+
+    /* Ring follows IVT red */
+    --ring: 355 85% 52%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Optional dark surface tokens (used only if .dark exists) */
+    --color-text: #ffffff;
+    --color-muted: rgba(255, 255, 255, 0.72);
+    --color-border: rgba(255, 255, 255, 0.12);
+
+    --background: 216 12% 8%;
+    --foreground: 210 40% 98%;
+    --card: 216 12% 10%;
+    --card-foreground: 210 40% 98%;
+    --popover: 216 12% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Dark mode primary stays IVT red (same hue, looks consistent) */
+    --primary: 355 85% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 216 12% 14%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 216 12% 14%;
+    --muted-foreground: 215 16% 60%;
+
+    /* Accent peach still works on dark */
+    --accent: 14 88% 77%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 216 12% 18%;
+    --input: 216 12% 18%;
+    --ring: 355 85% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 md:px-8 lg:px-12;
+  }
+
+  .section-spacing {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  .gradient-text {
+    /* keep existing, but now from-primary uses IVT red */
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80;
+  }
+}
