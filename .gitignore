@@ -47,3 +47,6 @@ directus/snapshots/current.directus.json
 
 # directus env files
 .env.directus
+
+# Large archives (do not commit)
+project-bolt-sb1-pfhidg4r.zip
