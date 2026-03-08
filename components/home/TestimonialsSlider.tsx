@@ -48,15 +48,15 @@ export function TestimonialsSlider({ testimonials: featuredTestimonials }: Testi
             transition={{ duration: 0.5 }}
             className="w-full"
           >
-            <Card className="border-none bg-gradient-to-br from-primary/5 to-transparent">
+            <Card className="ivt-frame ivt-frame-hover ivt-card-hover border border-white/10 bg-gradient-to-br from-primary/5 to-transparent transition-all duration-200">
               <CardContent className="p-8 md:p-12">
                 <div className="max-w-4xl mx-auto">
                   <div className="flex justify-center mb-6">
                     <div className="p-3 rounded-full bg-primary/10">
-                      <Quote className="h-8 w-8 text-primary" />
+                      <Quote className="ivt-icon-lg text-primary" strokeWidth={1.5} />
                     </div>
                   </div>
-                  <blockquote className="text-xl md:text-2xl text-center leading-relaxed mb-8 text-foreground">
+                  <blockquote className="text-xl md:text-2xl text-center leading-relaxed mb-8 text-white/80">
                     "{quote}"
                   </blockquote>
                   <div className="text-center">
@@ -68,7 +68,7 @@ export function TestimonialsSlider({ testimonials: featuredTestimonials }: Testi
                         <p className="font-semibold text-lg">
                           {currentTestimonial.author_name}
                         </p>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-sm text-white/55">
                           {authorTitle}, {currentTestimonial.company_name}
                         </p>
                       </div>

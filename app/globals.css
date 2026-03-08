@@ -9,25 +9,29 @@
     --font-inter: 'Inter', sans-serif;
 
     /* =========================
-       IVT Brand Tokens (additive)
+       IVT Brand Tokens (defense/industrial palette; no #f9aa8f / #ed1c24)
        ========================= */
-    --ivt-peach: #f9aa8f;
-    --ivt-red: #ed1c24;
-    --ivt-burgundy: #9a061a;
+    --ivt-crimson: #7a0014;
+    --ivt-crimson-hover: #9b0f24;
+    --ivt-burgundy: #2a0010;
+    --ivt-accent-neutral: #9ca3af;
 
     --ivt-gray-500: #8f8f8f;
     --ivt-gray-600: #636363;
     --ivt-gray-700: #3d3d3d;
 
-    /* IVT RGB helpers (for hsl() mapping) */
-    --ivt-red-rgb: 237 28 36;       /* #ed1c24 */
-    --ivt-burgundy-rgb: 154 6 26;   /* #9a061a */
-    --ivt-peach-rgb: 249 170 143;   /* #f9aa8f */
+    /* RGB helpers for opacity usage */
+    --ivt-crimson-rgb: 122 0 20;
+    --ivt-burgundy-rgb: 42 0 16;
+    --ivt-accent-rgb: 156 163 175;
 
-    /* map to app tokens (CSS color vars) */
-    --color-primary: var(--ivt-red);
+    /* map to app tokens */
+    --color-primary: var(--ivt-crimson);
     --color-primary-dark: var(--ivt-burgundy);
-    --color-accent: var(--ivt-peach);
+    --color-accent: var(--ivt-accent-neutral);
+    /* Aliases for Tailwind ivt.* (no forbidden hex) */
+    --ivt-red: var(--ivt-crimson);
+    --ivt-peach: var(--ivt-accent-neutral);
 
     --color-text: #111111;
     --color-muted: var(--ivt-gray-600);
@@ -43,8 +47,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 216 12% 16%;
 
-    /* Replace previous blue primary with IVT red (HSL components) */
-    --primary: 355 85% 52%;
+    /* Primary: deep crimson (defense palette) */
+    --primary: 352 100% 24%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 40% 96%;
@@ -52,8 +56,8 @@
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
 
-    /* Accent becomes IVT peach */
-    --accent: 14 88% 77%;
+    /* Accent: neutral gray */
+    --accent: 220 9% 65%;
     --accent-foreground: 216 12% 16%;
 
     --destructive: 0 84% 60%;
@@ -62,8 +66,7 @@
     --border: 214 32% 91%;
     --input: 214 32% 91%;
 
-    /* Ring follows IVT red */
-    --ring: 355 85% 52%;
+    --ring: 352 100% 24%;
 
     --radius: 0.5rem;
   }
@@ -81,8 +84,8 @@
     --popover: 216 12% 10%;
     --popover-foreground: 210 40% 98%;
 
-    /* Dark mode primary stays IVT red (same hue, looks consistent) */
-    --primary: 355 85% 52%;
+    /* Dark mode: same defense primary */
+    --primary: 352 100% 24%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 216 12% 14%;
@@ -90,8 +93,7 @@
     --muted: 216 12% 14%;
     --muted-foreground: 215 16% 60%;
 
-    /* Accent peach still works on dark */
-    --accent: 14 88% 77%;
+    --accent: 220 9% 65%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 72% 51%;
@@ -99,7 +101,16 @@
 
     --border: 216 12% 18%;
     --input: 216 12% 18%;
-    --ring: 355 85% 52%;
+    --ring: 352 100% 24%;
+  }
+}
+
+/* Respect reduced motion for animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
@@ -108,7 +119,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-transparent text-foreground font-sans antialiased;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight;
@@ -132,12 +143,136 @@
     @apply max-w-7xl mx-auto px-6 md:px-8 lg:px-12;
   }
 
+  /* All main sections share spacing and relative positioning for overlays */
   .section-spacing {
-    @apply py-16 md:py-24 lg:py-32;
+    @apply relative py-12 md:py-20;
+  }
+
+  /* Section typography hierarchy (defense startup) */
+  .section-title {
+    @apply text-white/90 font-bold tracking-tight;
+  }
+  .section-subtitle {
+    @apply text-white/60;
+  }
+
+  /* Icon tokens: consistent size and color on dark UI */
+  .ivt-icon {
+    @apply shrink-0 transition-colors duration-150 ease-out;
+  }
+  .ivt-icon-sm {
+    @apply ivt-icon w-4 h-4 text-white/60;
+  }
+  .ivt-icon-md {
+    @apply ivt-icon w-5 h-5 text-white/70;
+  }
+  .ivt-icon-lg {
+    @apply ivt-icon w-6 h-6 text-white/80;
+  }
+
+  /* Card hover: subtle lift, shadow, border (industrial UI) */
+  .ivt-card-hover:hover {
+    @apply -translate-y-0.5 shadow-lg border-white/20;
   }
 
   .gradient-text {
-    /* keep existing, but now from-primary uses IVT red */
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80;
   }
+
+  /* Global tactical grid & vignette helpers (used in layout) */
+  .bg-tactical-grid {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .bg-vignette {
+    background:
+      radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.35) 100%);
+  }
+
+  /* Section tactical divider lines */
+  .section-spacing::before {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 1px;
+    background-color: rgba(255,255,255,0.1);
+    pointer-events: none;
+    z-index: -5;
+  }
+
+  .section-spacing::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 1.5rem;
+    width: 3rem;
+    height: 1px;
+    background-color: #7a0014;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: -4;
+    animation: divider-glow 4s ease-in-out infinite;
+  }
+
+  /* Subtle float for decorative section markers only */
+  .deco-float {
+    animation: deco-float 8s ease-in-out infinite;
+  }
+
+  /* Tactical corner markers (L-shaped, 1px, 16px) – panels and cards */
+  .ivt-frame {
+    position: relative;
+    --ivt-corner: rgba(255, 255, 255, 0.14);
+    background-image:
+      linear-gradient(var(--ivt-corner), var(--ivt-corner)),
+      linear-gradient(var(--ivt-corner), var(--ivt-corner)),
+      linear-gradient(var(--ivt-corner), var(--ivt-corner)),
+      linear-gradient(var(--ivt-corner), var(--ivt-corner)),
+      linear-gradient(var(--ivt-corner), var(--ivt-corner)),
+      linear-gradient(var(--ivt-corner), var(--ivt-corner)),
+      linear-gradient(var(--ivt-corner), var(--ivt-corner)),
+      linear-gradient(var(--ivt-corner), var(--ivt-corner));
+    background-size:
+      16px 1px,
+      1px 16px,
+      16px 1px,
+      1px 16px,
+      16px 1px,
+      1px 16px,
+      16px 1px,
+      1px 16px;
+    background-position:
+      0 0,
+      0 0,
+      100% 0,
+      100% 0,
+      0 100%,
+      0 100%,
+      100% 100%,
+      100% 100%;
+    background-repeat: no-repeat;
+  }
+
+  .ivt-frame-hover:hover {
+    --ivt-corner: rgba(255, 255, 255, 0.24);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+
+  .ivt-frame-hover {
+    transition: box-shadow 0.2s ease;
+  }
+}
+
+@keyframes deco-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes divider-glow {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
 }

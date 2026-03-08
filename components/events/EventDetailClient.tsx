@@ -48,7 +48,7 @@ export function EventDetailClient({ event }: EventDetailClientProps) {
 
   return (
     <div className="flex flex-col">
-      <section className="section-spacing bg-gradient-to-br from-primary/5 via-transparent to-primary/10">
+      <section className="section-spacing relative overflow-hidden">
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -57,7 +57,7 @@ export function EventDetailClient({ event }: EventDetailClientProps) {
           >
             <Button variant="ghost" asChild className="mb-6">
               <Link href="/events">
-                <ArrowLeft className="mr-2 h-4 w-4" />
+                <ArrowLeft className="ivt-icon-md mr-2" />
                 {language === 'de' ? 'Zurück zu Events' : 'Back to Events'}
               </Link>
             </Button>
@@ -66,11 +66,11 @@ export function EventDetailClient({ event }: EventDetailClientProps) {
 
             <div className="space-y-4 mb-6">
               <div className="flex items-center gap-2 text-muted-foreground">
-                <Calendar className="h-5 w-5" />
+                <Calendar className="ivt-icon-sm" />
                 <span>{formatDateRange(event.start_at, event.end_at)}</span>
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
-                <MapPin className="h-5 w-5" />
+                <MapPin className="ivt-icon-sm" />
                 <span>{event.location}</span>
               </div>
             </div>
@@ -131,14 +131,14 @@ export function EventDetailClient({ event }: EventDetailClientProps) {
                     <div className="space-y-4">
                       <div>
                         <div className="flex items-center text-sm text-muted-foreground mb-1">
-                          <Calendar className="h-4 w-4 mr-2" />
+                          <Calendar className="ivt-icon-sm mr-2" />
                           {language === 'de' ? 'Datum & Zeit' : 'Date & Time'}
                         </div>
                         <p className="font-semibold">{formatDateRange(event.start_at, event.end_at)}</p>
                       </div>
                       <div>
                         <div className="flex items-center text-sm text-muted-foreground mb-1">
-                          <MapPin className="h-4 w-4 mr-2" />
+                          <MapPin className="ivt-icon-sm mr-2" />
                           {language === 'de' ? 'Ort' : 'Location'}
                         </div>
                         <p className="font-semibold">{event.location}</p>

@@ -5,8 +5,8 @@ export type { Testimonial };
 export const mockTestimonials: Testimonial[] = [
   {
     id: '1',
-    quote_de: 'Innovation Valley Thüringen hat uns geholfen, unsere KI-Forschung auf das nächste Level zu bringen. Die Zusammenarbeit mit führenden Experten und der Zugang zu modernster Infrastruktur waren entscheidend für unseren Erfolg.',
-    quote_en: 'Innovation Valley Thuringia helped us take our AI research to the next level. The collaboration with leading experts and access to state-of-the-art infrastructure were crucial to our success.',
+    quote_de: 'Innovation Valley has accelerated our production timelines by 30% – CEO, Sample GmbH.',
+    quote_en: 'Innovation Valley has accelerated our production timelines by 30% – CEO, Sample GmbH.',
     author_name: 'Dr. Michael Schneider',
     author_title_de: 'CEO',
     author_title_en: 'CEO',

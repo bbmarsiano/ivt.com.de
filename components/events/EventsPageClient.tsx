@@ -25,7 +25,7 @@ export function EventsPageClient({ events }: EventsPageClientProps) {
 
   return (
     <div className="flex flex-col">
-      <section className="section-spacing bg-gradient-to-br from-primary/5 via-transparent to-primary/10">
+      <section className="section-spacing relative overflow-hidden">
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -70,11 +70,11 @@ export function EventsPageClient({ events }: EventsPageClientProps) {
                       <CardContent className="p-6">
                         <div className="flex gap-4 mb-3 text-sm text-muted-foreground">
                           <div className="flex items-center">
-                            <Calendar className="mr-2 h-4 w-4" />
+                            <Calendar className="ivt-icon-sm mr-2" />
                             {formatDate(event.start_at)}
                           </div>
                           <div className="flex items-center">
-                            <MapPin className="mr-2 h-4 w-4" />
+                            <MapPin className="ivt-icon-sm mr-2" />
                             {event.location}
                           </div>
                         </div>

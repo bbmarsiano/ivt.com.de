@@ -40,7 +40,7 @@ export function NewsTeaser({ news: sortedNews }: NewsTeaserProps) {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Link href={`/news/${newsItem.slug}`} className="group block h-full">
-                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-primary/20 h-full flex flex-col">
+                <Card className="ivt-frame ivt-frame-hover ivt-card-hover overflow-hidden border border-white/10 transition-all duration-200 h-full flex flex-col">
                   {newsItem.cover && (
                     <div className="aspect-[16/9] overflow-hidden bg-muted">
                       <img
@@ -52,7 +52,7 @@ export function NewsTeaser({ news: sortedNews }: NewsTeaserProps) {
                   )}
                   <CardContent className="p-6 flex-1 flex flex-col">
                     <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                      <Calendar className="h-4 w-4" />
+                      <Calendar className="ivt-icon-sm" />
                       <span>{formatDate(newsItem.published_at)}</span>
                     </div>
                     <h3 className="text-xl font-semibold mb-3 line-clamp-2 group-hover:text-primary transition-colors">
@@ -68,9 +68,9 @@ export function NewsTeaser({ news: sortedNews }: NewsTeaserProps) {
                         </Badge>
                       ))}
                     </div>
-                    <div className="flex items-center text-primary font-medium group-hover:gap-2 transition-all">
+                    <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-2 transition-all">
                       {t.pages.home.latestNews.readMore}
-                      <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="ivt-icon w-5 h-5 shrink-0 text-current group-hover:translate-x-0.5 transition-all duration-150" />
                     </div>
                   </CardContent>
                 </Card>
@@ -82,9 +82,9 @@ export function NewsTeaser({ news: sortedNews }: NewsTeaserProps) {
 
       <div className="flex justify-center">
         <Button asChild size="lg" variant="outline" className="group">
-          <Link href="/news">
+          <Link href="/news" className="inline-flex items-center gap-2">
             {t.pages.home.latestNews.viewAll}
-            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="ivt-icon-md group-hover:translate-x-0.5 transition-transform duration-150" />
           </Link>
         </Button>
       </div>

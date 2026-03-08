@@ -68,74 +68,78 @@ export function IntroOverlay() {
           <div className="relative w-full h-full flex items-center justify-center">
             {!hasError ? (
               <>
-                <video
-                  ref={videoRef}
-                  className="absolute inset-0 w-full h-full object-cover"
-                  muted
-                  playsInline
-                  onCanPlay={handleVideoCanPlay}
-                  onPlay={handleVideoPlay}
-                  onError={handleVideoError}
-                  onEnded={handleVideoEnd}
-                  preload="auto"
-                >
-                  <source src="/intro/ivt-intro.mp4" type="video/mp4" />
-                </video>
+                <div className="relative flex h-full w-full items-center justify-center px-4">
+                  <div className="relative w-[min(90vw,calc(90vh*9/16))] max-h-[90vh] aspect-[9/16]">
+                    <video
+                      ref={videoRef}
+                      className="w-full h-full object-contain"
+                      muted
+                      playsInline
+                      onCanPlay={handleVideoCanPlay}
+                      onPlay={handleVideoPlay}
+                      onError={handleVideoError}
+                      onEnded={handleVideoEnd}
+                      preload="auto"
+                    >
+                      <source src="/intro/ivt-intro.mp4" type="video/mp4" />
+                    </video>
 
-                {isLoading && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="absolute inset-0 flex items-center justify-center bg-black"
-                  >
-                    <div className="text-center">
-                      <div className="mb-4 flex justify-center">
-                        <BrandLogo
-                          variant="dark"
-                          lockup="horizontal"
-                          className="h-10 sm:h-12 md:h-14 w-auto mx-auto"
-                          priority
-                        />
-                      </div>
-                      <p className="text-white/60 text-sm">{t.intro.loading}</p>
-                    </div>
-                  </motion.div>
-                )}
+                    {isLoading && (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="absolute inset-0 flex items-center justify-center bg-black"
+                      >
+                        <div className="text-center">
+                          <div className="mb-4 flex justify-center">
+                            <BrandLogo
+                              variant="dark"
+                              lockup="horizontal"
+                              className="h-10 sm:h-12 md:h-14 w-auto mx-auto"
+                              priority
+                            />
+                          </div>
+                          <p className="text-white/60 text-sm">{t.intro.loading}</p>
+                        </div>
+                      </motion.div>
+                    )}
 
-                {!isLoading && !videoStarted && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm"
-                  >
-                    <div className="text-center max-w-4xl px-6">
-                      <div className="mb-6 flex justify-center">
-                        <BrandLogo
-                          variant="dark"
-                          lockup="horizontal"
-                          className="h-10 sm:h-12 md:h-14 w-auto mx-auto"
-                          priority
-                        />
-                      </div>
-                      <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
+                    {!isLoading && !videoStarted && (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm"
                       >
-                        {t.intro.headline}
-                      </motion.h1>
-                      <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 }}
-                        className="text-xl md:text-2xl text-white/80 leading-relaxed"
-                      >
-                        {t.intro.subline}
-                      </motion.p>
-                    </div>
-                  </motion.div>
-                )}
+                        <div className="text-center max-w-4xl px-6">
+                          <div className="mb-6 flex justify-center">
+                            <BrandLogo
+                              variant="dark"
+                              lockup="horizontal"
+                              className="h-10 sm:h-12 md:h-14 w-auto mx-auto"
+                              priority
+                            />
+                          </div>
+                          <motion.h1
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
+                          >
+                            {t.intro.headline}
+                          </motion.h1>
+                          <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4 }}
+                            className="text-xl md:text-2xl text-white/80 leading-relaxed"
+                          >
+                            {t.intro.subline}
+                          </motion.p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </div>
+                </div>
 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}

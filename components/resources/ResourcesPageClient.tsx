@@ -183,7 +183,7 @@ export function ResourcesPageClient({
   return (
     <div className="flex flex-col">
       {/* Hero */}
-      <section className="section-spacing bg-gradient-to-br from-primary/5 via-transparent to-primary/10">
+      <section className="section-spacing relative overflow-hidden">
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

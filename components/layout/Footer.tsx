@@ -109,7 +109,8 @@ export function Footer({ siteSettings }: FooterProps) {
                           'md:grid-cols-4'; // Default to 4
 
     return (
-      <footer className="w-full border-t border-border bg-muted/40">
+      <footer className="w-full border-t border-white/10 bg-black/20 relative">
+        <div className="pointer-events-none absolute left-0 top-0 h-px w-20 bg-primary/60" />
         <div className="section-container">
           <div className="py-12 md:py-16">
             <div className={`grid grid-cols-1 ${gridColsClass} gap-8 mb-8`}>
@@ -132,18 +133,18 @@ export function Footer({ siteSettings }: FooterProps) {
 
                 return (
                   <div key={section.key}>
-                    <h3 className="font-semibold text-sm mb-5">{sectionTitle}</h3>
+                    <h3 className="text-xs font-semibold text-white uppercase tracking-[0.12em] mb-5">{sectionTitle}</h3>
                     <ul className="space-y-2.5">
                       {sectionLinks.map((link) => {
                         const isExternal = link.href.startsWith('http://') || link.href.startsWith('https://');
                         const isActive = !isExternal && pathname === link.href;
                         
                         // Base classes for all links
-                        const baseClasses = "text-sm text-muted-foreground transition-all duration-200";
+                        const baseClasses = "text-sm text-white/70 transition-all duration-200";
                         // Hover: underline + opacity change
-                        const hoverClasses = "hover:text-foreground hover:underline hover:underline-offset-2";
-                        // Active: font-semibold + underline + higher opacity
-                        const activeClasses = isActive ? "font-semibold text-foreground underline underline-offset-2" : "";
+                        const hoverClasses = "hover:text-white hover:underline hover:underline-offset-2";
+                        // Active: font-semibold + underline + white
+                        const activeClasses = isActive ? "font-semibold text-white underline underline-offset-2" : "";
                         // Focus: ring for accessibility
                         const focusClasses = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:rounded-sm";
                         
@@ -222,7 +223,8 @@ export function Footer({ siteSettings }: FooterProps) {
   ];
 
   return (
-    <footer className="w-full border-t border-border bg-muted/40">
+    <footer className="w-full border-t border-white/10 bg-black/20 relative">
+      <div className="pointer-events-none absolute left-0 top-0 h-px w-20 bg-primary/60" />
       <div className="section-container">
         <div className="py-12 md:py-16">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
@@ -235,15 +237,15 @@ export function Footer({ siteSettings }: FooterProps) {
             </div>
 
             <div>
-              <h3 className="font-semibold text-sm mb-5">Navigation</h3>
+              <h3 className="text-xs font-semibold text-white uppercase tracking-[0.12em] mb-5">Navigation</h3>
               <ul className="space-y-2.5">
                 {mainLinks.map((link) => {
                   const isExternal = link.href.startsWith('http://') || link.href.startsWith('https://');
                   const isActive = !isExternal && pathname === link.href;
                   
-                  const baseClasses = "text-sm text-muted-foreground transition-all duration-200";
-                  const hoverClasses = "hover:text-foreground hover:underline hover:underline-offset-2";
-                  const activeClasses = isActive ? "font-semibold text-foreground underline underline-offset-2" : "";
+                  const baseClasses = "text-sm text-white/70 transition-all duration-200";
+                  const hoverClasses = "hover:text-white hover:underline hover:underline-offset-2";
+                  const activeClasses = isActive ? "font-semibold text-white underline underline-offset-2" : "";
                   const focusClasses = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:rounded-sm";
                   const linkClasses = `${baseClasses} ${hoverClasses} ${activeClasses} ${focusClasses}`;
                   
@@ -264,15 +266,15 @@ export function Footer({ siteSettings }: FooterProps) {
             </div>
 
             <div>
-              <h3 className="font-semibold text-sm mb-5">Ressourcen</h3>
+              <h3 className="text-xs font-semibold text-white uppercase tracking-[0.12em] mb-5">Ressourcen</h3>
               <ul className="space-y-2.5">
                 {secondaryLinks.map((link) => {
                   const isExternal = link.href.startsWith('http://') || link.href.startsWith('https://');
                   const isActive = !isExternal && pathname === link.href;
                   
-                  const baseClasses = "text-sm text-muted-foreground transition-all duration-200";
-                  const hoverClasses = "hover:text-foreground hover:underline hover:underline-offset-2";
-                  const activeClasses = isActive ? "font-semibold text-foreground underline underline-offset-2" : "";
+                  const baseClasses = "text-sm text-white/70 transition-all duration-200";
+                  const hoverClasses = "hover:text-white hover:underline hover:underline-offset-2";
+                  const activeClasses = isActive ? "font-semibold text-white underline underline-offset-2" : "";
                   const focusClasses = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:rounded-sm";
                   const linkClasses = `${baseClasses} ${hoverClasses} ${activeClasses} ${focusClasses}`;
                   
@@ -293,13 +295,13 @@ export function Footer({ siteSettings }: FooterProps) {
             </div>
 
             <div>
-              <h3 className="font-semibold text-sm mb-5">Legal</h3>
+              <h3 className="text-xs font-semibold text-white uppercase tracking-[0.12em] mb-5">Legal</h3>
               <ul className="space-y-2.5">
                 {legalLinks.map((link) => {
                   const isActive = pathname === link.href;
-                  const baseClasses = "text-sm text-muted-foreground transition-all duration-200";
-                  const hoverClasses = "hover:text-foreground hover:underline hover:underline-offset-2";
-                  const activeClasses = isActive ? "font-semibold text-foreground underline underline-offset-2" : "";
+                  const baseClasses = "text-sm text-white/70 transition-all duration-200";
+                  const hoverClasses = "hover:text-white hover:underline hover:underline-offset-2";
+                  const activeClasses = isActive ? "font-semibold text-white underline underline-offset-2" : "";
                   const focusClasses = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:rounded-sm";
                   const linkClasses = `${baseClasses} ${hoverClasses} ${activeClasses} ${focusClasses}`;
                   

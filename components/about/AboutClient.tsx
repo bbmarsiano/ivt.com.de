@@ -66,7 +66,7 @@ export function AboutClient({ aboutContent, team }: AboutClientProps) {
   return (
     <div className="flex flex-col">
       {/* Hero Section: Title + Intro + Image */}
-      <section className="section-spacing bg-gradient-to-br from-primary/5 via-transparent to-primary/10">
+      <section className="section-spacing relative overflow-hidden">
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -74,8 +74,8 @@ export function AboutClient({ aboutContent, team }: AboutClientProps) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="mb-6">{language === 'de' ? aboutContent.title_de : aboutContent.title_en}</h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
+              <h1 className="section-title mb-6">{language === 'de' ? aboutContent.title_de : aboutContent.title_en}</h1>
+              <p className="section-subtitle text-xl leading-relaxed max-w-3xl">
                 {language === 'de' ? aboutContent.intro_de : aboutContent.intro_en}
               </p>
             </motion.div>
@@ -105,13 +105,13 @@ export function AboutClient({ aboutContent, team }: AboutClientProps) {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="mb-6">
+              <h2 className="section-title mb-6">
                 {language === 'de' ? 'Unsere Mission & Vision' : 'Our Mission & Vision'}
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+              <p className="section-subtitle text-lg leading-relaxed mb-4 max-w-3xl">
                 {language === 'de' ? aboutContent.mission_de : aboutContent.mission_en}
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="section-subtitle text-lg leading-relaxed max-w-3xl">
                 {language === 'de' ? aboutContent.vision_de : aboutContent.vision_en}
               </p>
             </motion.div>
@@ -129,8 +129,8 @@ export function AboutClient({ aboutContent, team }: AboutClientProps) {
                 <Card className="h-full">
                   <CardContent className="p-6">
                     <div className="flex flex-col items-center text-center">
-                      <div className="mb-4 p-3 rounded-lg bg-primary/10">
-                        <value.icon className="h-8 w-8 text-primary" />
+                      <div className="mb-4 rounded-md border border-white/10 bg-white/5 p-2">
+                        <value.icon className="ivt-icon-lg text-primary" strokeWidth={1.5} />
                       </div>
                       <h3 className="text-xl font-semibold mb-2">
                         {value.title[language]}
@@ -148,7 +148,7 @@ export function AboutClient({ aboutContent, team }: AboutClientProps) {
       </section>
 
       {sortedTeam.length > 0 && (
-        <section id="team" className="section-spacing bg-muted/30">
+        <section id="team" className="section-spacing relative overflow-hidden">
           <div className="section-container">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -157,10 +157,10 @@ export function AboutClient({ aboutContent, team }: AboutClientProps) {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="mb-4">
+              <h2 className="section-title mb-4">
                 {language === 'de' ? 'Unser Team' : 'Our Team'}
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="section-subtitle text-lg max-w-2xl mx-auto">
                 {language === 'de'
                   ? 'Die Experten hinter Innovation Valley Thüringen'
                   : 'The experts behind Innovation Valley Thuringia'}
@@ -219,7 +219,7 @@ export function AboutClient({ aboutContent, team }: AboutClientProps) {
                                 className="text-muted-foreground hover:text-primary transition-colors"
                                 aria-label={`Email ${fullName}`}
                               >
-                                <Mail className="h-5 w-5" />
+                                <Mail className="ivt-icon w-5 h-5 shrink-0 transition-colors duration-150" />
                               </a>
                             )}
                             {member.linkedin && (
@@ -230,7 +230,7 @@ export function AboutClient({ aboutContent, team }: AboutClientProps) {
                                 className="text-muted-foreground hover:text-primary transition-colors"
                                 aria-label={`${fullName} LinkedIn`}
                               >
-                                <Linkedin className="h-5 w-5" />
+                                <Linkedin className="ivt-icon w-5 h-5 shrink-0 transition-colors duration-150" />
                               </a>
                             )}
                           </div>
@@ -245,12 +245,6 @@ export function AboutClient({ aboutContent, team }: AboutClientProps) {
         </section>
       )}
 
-      {/* DEV-only hard proof: show live title_en from Directus */}
-      {process.env.NODE_ENV === 'development' && (
-        <div className="fixed bottom-20 right-4 bg-primary text-primary-foreground px-3 py-1 rounded text-xs font-mono z-50 shadow-lg">
-          ABOUT: {aboutContent.title_en || 'N/A'}
-        </div>
-      )}
     </div>
   );
 }

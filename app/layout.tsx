@@ -1,10 +1,10 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import Image from 'next/image';
 import { Providers } from '@/components/Providers';
 import { HeaderWithMenus } from '@/components/layout/HeaderWithMenus';
 import { FooterWithMenus } from '@/components/layout/FooterWithMenus';
-import { CmsSourceBadge } from '@/components/CmsSourceBadge';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -55,12 +55,25 @@ export default function RootLayout({
     <html lang="de" suppressHydrationWarning>
       <body className={inter.className}>
         <Providers>
-          <div className="flex min-h-screen flex-col">
-            <HeaderWithMenus />
-            <main className="flex-1">{children}</main>
-            <FooterWithMenus />
+          <div className="relative min-h-screen">
+            {/* Fixed global background (content scrolls over it) */}
+            <div className="pointer-events-none fixed inset-0 -z-40 bg-gradient-to-b from-[#050507] via-[#120008] to-[#2a0010]" />
+            <div className="pointer-events-none fixed inset-0 -z-35 opacity-40 bg-tactical-grid" />
+            <div className="pointer-events-none fixed inset-0 -z-30 opacity-30">
+              <Image
+                src="/brand/background_imgs/ivt_3.png"
+                alt=""
+                fill
+                className="object-cover object-bottom"
+              />
+            </div>
+            <div className="pointer-events-none fixed inset-0 -z-20 bg-vignette" />
+            <div className="relative z-10 flex min-h-screen flex-col">
+              <HeaderWithMenus />
+              <main className="flex-1">{children}</main>
+              <FooterWithMenus />
+            </div>
           </div>
-          <CmsSourceBadge />
         </Providers>
       </body>
     </html>

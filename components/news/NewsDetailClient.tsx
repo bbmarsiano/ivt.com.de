@@ -30,7 +30,7 @@ export function NewsDetailClient({ newsItem }: NewsDetailClientProps) {
 
   return (
     <div className="flex flex-col">
-      <section className="section-spacing bg-gradient-to-br from-primary/5 via-transparent to-primary/10">
+      <section className="section-spacing relative overflow-hidden">
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -39,13 +39,13 @@ export function NewsDetailClient({ newsItem }: NewsDetailClientProps) {
           >
             <Button variant="ghost" asChild className="mb-6">
               <Link href="/news">
-                <ArrowLeft className="mr-2 h-4 w-4" />
+                <ArrowLeft className="ivt-icon-md mr-2" />
                 {language === 'de' ? 'Zurück zu News' : 'Back to News'}
               </Link>
             </Button>
 
             <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-              <Calendar className="h-4 w-4" />
+              <Calendar className="ivt-icon-sm" />
               <span>{formatDate(newsItem.published_at)}</span>
             </div>
 

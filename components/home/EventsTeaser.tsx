@@ -46,7 +46,7 @@ export function EventsTeaser({ events: upcomingEvents }: EventsTeaserProps) {
   if (upcomingEvents.length === 0) {
     return (
       <div className="text-center py-12">
-        <Calendar className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
+        <Calendar className="ivt-icon w-12 h-12 shrink-0 mx-auto mb-4 text-muted-foreground" />
         <h3 className="text-xl font-semibold mb-2">
           {language === 'de' ? 'Keine bevorstehenden Events' : 'No Upcoming Events'}
         </h3>
@@ -77,7 +77,7 @@ export function EventsTeaser({ events: upcomingEvents }: EventsTeaserProps) {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Link href={`/events/${event.slug}`} className="group block h-full">
-                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-primary/20 h-full flex flex-col">
+                <Card className="ivt-frame ivt-frame-hover ivt-card-hover overflow-hidden border border-white/10 transition-all duration-200 h-full flex flex-col">
                   {event.cover && (
                     <div className="aspect-[16/9] overflow-hidden bg-muted">
                       <img
@@ -96,19 +96,19 @@ export function EventsTeaser({ events: upcomingEvents }: EventsTeaserProps) {
                     </p>
                     <div className="space-y-2 mb-4">
                       <div className="flex items-start gap-2 text-sm">
-                        <Calendar className="h-4 w-4 text-muted-foreground mt-0.5 flex-shrink-0" />
+                        <Calendar className="ivt-icon-sm mt-0.5 flex-shrink-0" />
                         <span className="text-muted-foreground">
                           {formatDateRange(event.start_at, event.end_at)}
                         </span>
                       </div>
                       <div className="flex items-start gap-2 text-sm">
-                        <MapPin className="h-4 w-4 text-muted-foreground mt-0.5 flex-shrink-0" />
+                        <MapPin className="ivt-icon-sm mt-0.5 flex-shrink-0" />
                         <span className="text-muted-foreground">{event.location}</span>
                       </div>
                     </div>
-                    <Button variant="outline" size="sm" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <Button variant="outline" size="sm" className="w-full inline-flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                       {t.pages.home.upcomingEvents.register}
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="ivt-icon w-5 h-5 shrink-0 group-hover:translate-x-0.5 transition-transform duration-150" />
                     </Button>
                   </CardContent>
                 </Card>
@@ -120,9 +120,9 @@ export function EventsTeaser({ events: upcomingEvents }: EventsTeaserProps) {
 
       <div className="flex justify-center">
         <Button asChild size="lg" variant="outline" className="group">
-          <Link href="/events">
+          <Link href="/events" className="inline-flex items-center gap-2">
             {t.pages.home.upcomingEvents.viewAll}
-            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="ivt-icon-md group-hover:translate-x-0.5 transition-transform duration-150" />
           </Link>
         </Button>
       </div>

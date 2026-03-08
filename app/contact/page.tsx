@@ -65,8 +65,8 @@ export default function ContactPage() {
                   <Card key={index}>
                     <CardContent className="p-6">
                       <div className="flex items-start space-x-4">
-                        <div className="p-2 rounded-lg bg-primary/10 flex-shrink-0">
-                          <info.icon className="h-5 w-5 text-primary" />
+                        <div className="rounded-md border border-white/10 bg-white/5 p-2 flex-shrink-0">
+                          <info.icon className="ivt-icon-md text-primary" strokeWidth={1.5} />
                         </div>
                         <div>
                           <h3 className="font-semibold mb-1">
