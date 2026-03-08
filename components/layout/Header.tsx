@@ -114,65 +114,67 @@ export function Header({ siteSettings }: HeaderProps) {
   );
 
   const sheetContent = (
-    <SheetContent side="right" className="w-[320px] sm:w-[380px]">
-      <div className="flex items-center gap-2 pt-1">
-        <span className="text-sm font-medium">{language === 'de' ? 'Menü' : 'Menu'}</span>
-      </div>
-      <Separator className="my-4" />
-      <nav className="flex flex-col gap-1">
-        {allMobileItems.map((item) => {
-          const isExternal = isExternalHref(item.href);
-          const isActive = isActiveLink(item.href);
-          const mobileLinkClasses = `min-h-11 px-3 py-2.5 rounded-md text-sm transition-colors flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${
-            isActive ? 'text-primary font-semibold' : 'text-foreground/80 hover:text-primary'
-          }`;
-          if (isExternal) {
+    <SheetContent side="right" className="w-[320px] sm:w-[380px] max-h-[100dvh] flex flex-col overflow-hidden">
+      <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden pb-6">
+        <div className="flex items-center gap-2 pt-1">
+          <span className="text-sm font-medium">{language === 'de' ? 'Menü' : 'Menu'}</span>
+        </div>
+        <Separator className="my-4" />
+        <nav className="flex flex-col gap-1">
+          {allMobileItems.map((item) => {
+            const isExternal = isExternalHref(item.href);
+            const isActive = isActiveLink(item.href);
+            const mobileLinkClasses = `min-h-11 px-3 py-2.5 rounded-md text-sm transition-colors flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${
+              isActive ? 'text-primary font-semibold' : 'text-foreground/80 hover:text-primary'
+            }`;
+            if (isExternal) {
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={mobileLinkClasses}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              );
+            }
             return (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
                 className={mobileLinkClasses}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}
-              </a>
+              </Link>
             );
-          }
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={mobileLinkClasses}
-              onClick={() => setIsMobileMenuOpen(false)}
+          })}
+        </nav>
+        <Separator className="my-4" />
+        <div className="flex flex-col space-y-3 rounded-lg border border-border bg-muted/30 p-3">
+          {hasSeenIntro && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => {
+                openOverlay();
+                setIsMobileMenuOpen(false);
+              }}
+              className={sheetUtilityButtonClass}
+              aria-label={language === 'de' ? 'Intro-Video erneut abspielen' : 'Replay intro video'}
             >
-              {item.label}
-            </Link>
-          );
-        })}
-      </nav>
-      <Separator className="my-4" />
-      <div className="flex flex-col space-y-3 rounded-lg border border-border bg-muted/30 p-3">
-        {hasSeenIntro && (
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => {
-              openOverlay();
-              setIsMobileMenuOpen(false);
-            }}
-            className={sheetUtilityButtonClass}
-            aria-label={language === 'de' ? 'Intro-Video erneut abspielen' : 'Replay intro video'}
-          >
-            <Play className="ivt-icon w-5 h-5 shrink-0 mr-2 text-current" />
-            {t.intro.replayButton}
+              <Play className="ivt-icon w-5 h-5 shrink-0 mr-2 text-current" />
+              {t.intro.replayButton}
+            </Button>
+          )}
+          <Button variant="outline" size="sm" onClick={toggleLanguage} className={sheetUtilityButtonClass}>
+            <Globe className="ivt-icon w-5 h-5 shrink-0 mr-2 text-current" />
+            <span className="text-sm font-medium text-current">{language.toUpperCase()}</span>
           </Button>
-        )}
-        <Button variant="outline" size="sm" onClick={toggleLanguage} className={sheetUtilityButtonClass}>
-          <Globe className="ivt-icon w-5 h-5 shrink-0 mr-2 text-current" />
-          <span className="text-sm font-medium text-current">{language.toUpperCase()}</span>
-        </Button>
+        </div>
       </div>
     </SheetContent>
   );
