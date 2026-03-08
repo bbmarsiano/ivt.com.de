@@ -3,12 +3,12 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/lib/i18n';
 import type { Project } from '@/lib/types/content';
-import { ChevronLeft, ChevronRight, Star, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 
 interface FeaturedProjectsCarouselProps {
   projects: Project[];
@@ -34,18 +34,6 @@ export function FeaturedProjectsCarousel({ projects: featuredProjects }: Feature
   const title = language === 'de' ? currentProject.title_de : currentProject.title_en;
   const summary = language === 'de' ? currentProject.summary_de : currentProject.summary_en;
   const industryLabel = t.pages.projects.industries[currentProject.industry];
-  const statusLabel = t.pages.projects.statuses[currentProject.status];
-
-  const statusBaseClasses =
-    'inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold tracking-wide border shadow-sm z-20';
-  const statusVariantClasses =
-    currentProject.status === 'ongoing'
-      ? 'bg-[#B45309]/90 text-white border-[#B45309]/60'
-      : currentProject.status === 'completed'
-      ? 'bg-[#0F5132]/90 text-white border-[#0F5132]/60'
-      : currentProject.status === 'planned'
-      ? 'bg-[#0B3D91]/90 text-white border-[#0B3D91]/60'
-      : 'bg-white/10 text-white border-white/30';
 
   return (
     <div className="relative">

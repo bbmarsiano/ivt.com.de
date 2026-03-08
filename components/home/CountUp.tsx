@@ -27,8 +27,8 @@ export function CountUp({ target, prefix = '', suffix = '', duration = 1500, cla
 
     const observer = new IntersectionObserver(
       (entries) => {
-        const [entry] = entries;
-        if (!entry.isIntersecting || hasStartedRef.current) return;
+        const entry = entries[0];
+        if (!entry || !entry.isIntersecting || hasStartedRef.current) return;
         hasStartedRef.current = true;
 
         const start = 0;
