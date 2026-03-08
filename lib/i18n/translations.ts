@@ -20,7 +20,7 @@ export const translations = {
     footer: {
       imprint: 'Impressum',
       privacy: 'Datenschutz',
-      copyright: '© 2024 Innovation Valley Thüringen. Alle Rechte vorbehalten.',
+      copyright: '© 2026 Innovation Valley Thüringen. Alle Rechte vorbehalten.',
     },
     intro: {
       replayButton: 'Intro',
@@ -216,7 +216,7 @@ export const translations = {
     footer: {
       imprint: 'Imprint',
       privacy: 'Privacy Policy',
-      copyright: '© 2024 Innovation Valley Thuringia. All rights reserved.',
+      copyright: '© 2026 Innovation Valley Thuringia. All rights reserved.',
     },
     intro: {
       replayButton: 'Intro',
