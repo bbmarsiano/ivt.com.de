@@ -48,15 +48,15 @@ export const translations = {
         highlights: {
           collaborative: {
             title: 'Kollaborative Projekte',
-            description: 'Interdisziplinäre Zusammenarbeit für Innovation',
+            description: 'Gemeinsame Forschungs- und Entwicklungsinitiativen.',
           },
           hub: {
             title: 'Thüringen Hub',
-            description: 'Zentrale Plattform für Wirtschaft und Forschung',
+            description: 'Nutzung regionaler Expertise und Ressourcen.',
           },
           madeInGermany: {
             title: 'Made in Germany',
-            description: 'Deutsche Ingenieurskunst und Qualität',
+            description: 'Höchste Qualitäts- und Innovationsstandards.',
           },
         },
         featuredProjects: {
@@ -255,15 +255,15 @@ export const translations = {
         highlights: {
           collaborative: {
             title: 'Collaborative Projects',
-            description: 'Interdisciplinary cooperation for innovation',
+            description: 'Join forces on R&D initiatives.',
           },
           hub: {
             title: 'Thuringia Hub',
-            description: 'Central platform for business and research',
+            description: 'Leverage local expertise and resources.',
           },
           madeInGermany: {
             title: 'Made in Germany',
-            description: 'German engineering excellence and quality',
+            description: 'Guaranteed high standards and innovation.',
           },
         },
         featuredProjects: {
