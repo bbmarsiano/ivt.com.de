@@ -30,6 +30,14 @@ export const translations = {
       continue: 'Weiter',
       loading: 'Lädt...',
     },
+    cookieBanner: {
+      title: 'Datenschutzeinstellungen',
+      text: 'Wir verwenden Cookies und ähnliche Technologien, um Ihre Erfahrung zu verbessern, den Datenverkehr zu analysieren und die grundlegende Funktionalität der Website zu gewährleisten.',
+      acceptAll: 'Alle akzeptieren',
+      manageSettings: 'Einstellungen verwalten',
+      privacyLink: 'Datenschutz',
+      manageNote: 'Wir verwenden nur notwendige Cookies. Weitere Einstellungen sind derzeit nicht verfügbar.',
+    },
     pages: {
       home: {
         title: 'Innovation Valley Thüringen',
@@ -228,6 +236,14 @@ export const translations = {
       skip: 'Skip',
       continue: 'Continue',
       loading: 'Loading...',
+    },
+    cookieBanner: {
+      title: 'Privacy Settings',
+      text: 'We use cookies and similar technologies to improve your experience, analyze traffic, and support essential site functionality.',
+      acceptAll: 'Accept All',
+      manageSettings: 'Manage Settings',
+      privacyLink: 'Privacy Policy',
+      manageNote: 'We only use essential cookies. No preferences to configure yet.',
     },
     pages: {
       home: {
