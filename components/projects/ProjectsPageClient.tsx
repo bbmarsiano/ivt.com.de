@@ -23,8 +23,8 @@ export function ProjectsPageClient({ initialProjects }: ProjectsPageClientProps)
             className="max-w-4xl mx-auto text-center"
           >
             <h1 className="section-title mb-6">{t.pages.projects.title}</h1>
-            <p className="section-subtitle text-xl max-w-3xl mx-auto">
-              {t.pages.projects.subtitle}
+            <p className="text-white/70 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mt-6">
+              {t.pages.projects.intro}
             </p>
           </motion.div>
         </div>

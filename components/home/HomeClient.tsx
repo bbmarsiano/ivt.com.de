@@ -6,26 +6,20 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/lib/i18n';
-import type { Project, Testimonial, NewsPost, EventItem } from '@/lib/types/content';
+import type { Project, Testimonial } from '@/lib/types/content';
 import { ArrowRight, Users, Building2, Award } from 'lucide-react';
 import { FeaturedProjectsCarousel } from '@/components/home/FeaturedProjectsCarousel';
 import { TestimonialsSlider } from '@/components/home/TestimonialsSlider';
-import { NewsTeaser } from '@/components/home/NewsTeaser';
-import { EventsTeaser } from '@/components/home/EventsTeaser';
 import { CountUp } from '@/components/home/CountUp';
 
 interface HomeClientProps {
   featuredProjects: Project[];
   featuredTestimonials: Testimonial[];
-  latestNews: NewsPost[];
-  upcomingEvents: EventItem[];
 }
 
 export function HomeClient({
   featuredProjects,
   featuredTestimonials,
-  latestNews,
-  upcomingEvents,
 }: HomeClientProps) {
   const { language, t } = useLanguage();
 

@@ -188,8 +188,8 @@ export function AboutClient({ aboutContent, team }: AboutClientProps) {
 
           {/* Milestones timeline — premium panel */}
           <motion.div
-            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-            whileInView={reduceMotion ? false : { opacity: 1, y: 0 }}
+            initial={reduceMotion ? undefined : { opacity: 0, y: 20 }}
+            whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="mt-16"
@@ -205,8 +205,8 @@ export function AboutClient({ aboutContent, team }: AboutClientProps) {
                 <div className="absolute left-0 right-0 top-8 h-px bg-white/5" aria-hidden />
                 <motion.div
                   className="absolute left-0 right-0 top-8 h-px bg-white/20 origin-left"
-                  initial={reduceMotion ? false : { scaleX: 0 }}
-                  whileInView={reduceMotion ? false : { scaleX: 1 }}
+                  initial={reduceMotion ? undefined : { scaleX: 0 }}
+                  whileInView={reduceMotion ? undefined : { scaleX: 1 }}
                   transition={{ duration: 1.2, ease: 'easeOut' }}
                   viewport={{ once: true }}
                   aria-hidden
@@ -215,15 +215,15 @@ export function AboutClient({ aboutContent, team }: AboutClientProps) {
                   {milestones.map((m, i) => (
                     <motion.div
                       key={m.year}
-                      initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-                      whileInView={reduceMotion ? false : { opacity: 1, y: 0 }}
+                      initial={reduceMotion ? undefined : { opacity: 0, y: 12 }}
+                      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.2 + i * 0.12, ease: 'easeOut' }}
                       viewport={{ once: true }}
                       className="flex flex-col items-center text-center group"
                     >
                       <motion.div
-                        initial={reduceMotion ? false : { scale: 0 }}
-                        whileInView={reduceMotion ? false : { scale: 1 }}
+                        initial={reduceMotion ? undefined : { scale: 0 }}
+                        whileInView={reduceMotion ? undefined : { scale: 1 }}
                         transition={{ duration: 0.4, delay: 0.35 + i * 0.12, ease: 'easeOut' }}
                         viewport={{ once: true }}
                         className="rounded-full w-5 h-5 border-2 border-white/20 flex-shrink-0 mb-4 relative z-10 flex items-center justify-center bg-black/80 shadow-[0_0_16px_rgba(122,0,20,0.2)] group-hover:shadow-[0_0_20px_rgba(122,0,20,0.35)] transition-shadow duration-300"
@@ -244,8 +244,8 @@ export function AboutClient({ aboutContent, team }: AboutClientProps) {
                 <div className="absolute left-[9px] top-4 bottom-4 w-px bg-white/5" aria-hidden />
                 <motion.div
                   className="absolute left-[9px] top-4 bottom-4 w-px bg-white/20 origin-top"
-                  initial={reduceMotion ? false : { scaleY: 0 }}
-                  whileInView={reduceMotion ? false : { scaleY: 1 }}
+                  initial={reduceMotion ? undefined : { scaleY: 0 }}
+                  whileInView={reduceMotion ? undefined : { scaleY: 1 }}
                   transition={{ duration: 1.2, ease: 'easeOut' }}
                   viewport={{ once: true }}
                   aria-hidden
@@ -254,15 +254,15 @@ export function AboutClient({ aboutContent, team }: AboutClientProps) {
                   {milestones.map((m, i) => (
                     <motion.div
                       key={m.year}
-                      initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-                      whileInView={reduceMotion ? false : { opacity: 1, y: 0 }}
+                      initial={reduceMotion ? undefined : { opacity: 0, y: 12 }}
+                      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.2 + i * 0.12, ease: 'easeOut' }}
                       viewport={{ once: true }}
                       className="flex gap-4 relative group"
                     >
                       <motion.div
-                        initial={reduceMotion ? false : { scale: 0 }}
-                        whileInView={reduceMotion ? false : { scale: 1 }}
+                        initial={reduceMotion ? undefined : { scale: 0 }}
+                        whileInView={reduceMotion ? undefined : { scale: 1 }}
                         transition={{ duration: 0.4, delay: 0.35 + i * 0.12, ease: 'easeOut' }}
                         viewport={{ once: true }}
                         className="absolute -left-6 top-2 rounded-full w-5 h-5 border-2 border-white/20 flex-shrink-0 z-10 flex items-center justify-center bg-black/80 shadow-[0_0_16px_rgba(122,0,20,0.2)] group-hover:shadow-[0_0_20px_rgba(122,0,20,0.35)] transition-shadow duration-300"

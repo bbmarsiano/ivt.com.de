@@ -93,7 +93,7 @@ export const translations = {
       },
       projects: {
         title: 'Projekte',
-        subtitle: 'Innovative Projekte aus Thüringen',
+        intro: 'Unsere Projekte umfassen die Entwicklung, Umsetzung und Produktion von Technologien wie erneuerbaren Energiesystemen, Automobilkomponenten und Smart-Manufacturing-Lösungen – alles zu 100 % in Deutschland hergestellt.',
         searchPlaceholder: 'Projekte durchsuchen...',
         filterIndustry: 'Branche',
         filterStatus: 'Status',
@@ -300,7 +300,7 @@ export const translations = {
       },
       projects: {
         title: 'Projects',
-        subtitle: 'Innovative Projects from Thuringia',
+        intro: 'Our projects span development, implementation, and production of technologies like renewable energy systems, automotive components, and smart manufacturing tools – all 100% made in Germany.',
         searchPlaceholder: 'Search projects...',
         filterIndustry: 'Industry',
         filterStatus: 'Status',
