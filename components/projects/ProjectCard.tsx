@@ -77,7 +77,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             )}
             <Button
               variant="ghost"
-              className="w-full inline-flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+              className="w-full inline-flex items-center justify-center gap-2 border border-muted-foreground/50 text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-colors"
             >
               {t.pages.projects.learnMore}
               <ArrowRight className="ivt-icon-md" />

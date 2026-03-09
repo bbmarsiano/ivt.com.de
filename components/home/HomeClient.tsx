@@ -29,26 +29,23 @@ export function HomeClient({
 }: HomeClientProps) {
   const { language, t } = useLanguage();
 
-  const heroPrimary = 'Welcome to Innovation Valley Thüringen';
-  const heroSecondary =
-    'Where German Companies Unite for Cutting-Edge Development, Implementation, and Production.';
   const missionCopy =
     'Innovation Valley Thüringen serves as a dynamic integration environment for Thuringia-based and German companies. We focus on executing ongoing projects in technology and product development, ensuring 100% German-made quality from concept to production.';
 
   const highlightContent = {
     collaborative: {
-      title: 'Collaborative Projects',
-      description: 'Join forces on R&D initiatives.',
+      title: t.pages.home.highlights.collaborative.title,
+      description: t.pages.home.highlights.collaborative.description,
     },
     hub: {
-      title: 'Thuringia Hub',
-      description: 'Leverage local expertise and resources.',
+      title: t.pages.home.highlights.hub.title,
+      description: t.pages.home.highlights.hub.description,
     },
     madeInGermany: {
-      title: 'Made in Germany',
-      description: 'Guaranteed high standards and innovation.',
+      title: t.pages.home.highlights.madeInGermany.title,
+      description: t.pages.home.highlights.madeInGermany.description,
     },
-  } as const;
+  };
 
   const featuredProjectsIntro = {
     title: 'Featured Projects',
@@ -95,21 +92,21 @@ export function HomeClient({
               className="mx-auto max-w-5xl text-center"
             >
               <h1 className="section-title mx-auto mb-2 max-w-5xl text-3xl md:text-5xl lg:text-6xl leading-tight">
-                {heroPrimary}
+                {t.pages.home.heroPrimary}
               </h1>
               <h2 className="section-subtitle mx-auto mt-2 mb-10 max-w-4xl text-xl md:text-3xl leading-relaxed">
-                {heroSecondary}
+                {t.pages.home.heroSecondary}
               </h2>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" asChild>
+                <Button size="lg" asChild className="hover:bg-white hover:text-gray-800">
                   <Link href="/about" className="inline-flex items-center gap-2">
-                    Explore Our Ecosystem
+                    {t.pages.home.ctaSection.title}
                     <ArrowRight className="ivt-icon-md" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" asChild>
+                <Button size="lg" variant="outline" asChild className="hover:bg-transparent hover:text-white border-white/30">
                   <Link href="/projects" className="inline-flex items-center gap-2">
-                    View Strategic Projects
+                    {t.pages.home.ctaSection.viewStrategicProjects}
                   </Link>
                 </Button>
               </div>
@@ -141,7 +138,7 @@ export function HomeClient({
                 viewport={{ once: true }}
                 className="text-center"
               >
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2 [text-shadow:0_0_24px_rgba(122,0,20,0.25)]">
+                <div className="text-4xl md:text-5xl font-bold text-white mb-2 [text-shadow:0_0_24px_rgba(122,0,20,0.25)]">
                   <CountUp target={stat.value} prefix={stat.prefix} suffix={stat.suffix} duration={1500} />
                 </div>
                 <div className="text-sm md:text-base text-muted-foreground">
@@ -169,16 +166,16 @@ export function HomeClient({
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Card className="ivt-frame ivt-frame-hover ivt-card-hover h-full border border-white/10 bg-black/20 transition-all duration-200">
+                  <Card className="ivt-frame ivt-frame-hover ivt-card-hover h-full transition-all duration-200">
                     <CardContent className="p-8">
                       <div className="flex flex-col items-center text-center">
                         <div className="mb-6 rounded-md border border-white/10 bg-white/5 p-2">
                           <highlight.icon className="ivt-icon-lg text-primary" strokeWidth={1.5} />
                         </div>
-                        <h3 className="text-xl font-semibold text-white/90 mb-3">
+                        <h3 className="text-xl font-semibold mb-3">
                           {highlightData.title}
                         </h3>
-                        <p className="text-white/60 leading-relaxed">
+                        <p className="text-muted-foreground leading-relaxed">
                           {highlightData.description}
                         </p>
                       </div>

@@ -56,7 +56,7 @@ export function TestimonialsSlider({ testimonials: featuredTestimonials }: Testi
                       <Quote className="ivt-icon-lg text-primary" strokeWidth={1.5} />
                     </div>
                   </div>
-                  <blockquote className="text-xl md:text-2xl text-center leading-relaxed mb-8 text-white/80">
+                  <blockquote className="text-xl md:text-2xl text-center leading-relaxed mb-8 text-muted-foreground">
                     "{quote}"
                   </blockquote>
                   <div className="text-center">

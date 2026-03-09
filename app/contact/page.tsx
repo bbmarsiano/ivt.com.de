@@ -40,7 +40,7 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="mb-6">{t.pages.contact.title}</h1>
+            <h1 className="section-title mb-6">{t.pages.contact.title}</h1>
             <p className="text-xl text-muted-foreground">
               {t.pages.contact.subtitle}
             </p>
@@ -57,7 +57,7 @@ export default function ContactPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-2xl font-semibold mb-6">
+              <h2 className="section-title text-2xl font-semibold mb-6">
                 {language === 'de' ? 'Kontaktinformationen' : 'Contact Information'}
               </h2>
               <div className="space-y-6">

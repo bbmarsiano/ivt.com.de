@@ -34,6 +34,8 @@ export const translations = {
       home: {
         title: 'Innovation Valley Thüringen',
         subtitle: 'Wo Innovation auf Tradition trifft',
+        heroPrimary: 'Willkommen im Innovation Valley Thüringen',
+        heroSecondary: 'Wo deutsche Unternehmen für zukunftsweisende Entwicklung, Umsetzung und Produktion zusammenkommen.',
         cta: 'Mehr erfahren',
         highlights: {
           collaborative: {
@@ -74,6 +76,7 @@ export const translations = {
           title: 'Entdecken Sie unser Ökosystem',
           description: 'Werden Sie Teil der innovativsten Community in Thüringen',
           button: 'Mehr erfahren',
+          viewStrategicProjects: 'Strategische Projekte ansehen',
         },
       },
       about: {
@@ -230,6 +233,8 @@ export const translations = {
       home: {
         title: 'Innovation Valley Thuringia',
         subtitle: 'Where Innovation Meets Tradition',
+        heroPrimary: 'Welcome to Innovation Valley Thüringen',
+        heroSecondary: 'Where German Companies Unite for Cutting-Edge Development, Implementation, and Production.',
         cta: 'Learn More',
         highlights: {
           collaborative: {
@@ -270,6 +275,7 @@ export const translations = {
           title: 'Explore Our Ecosystem',
           description: 'Become part of Thuringia\'s most innovative community',
           button: 'Learn More',
+          viewStrategicProjects: 'View Strategic Projects',
         },
       },
       about: {

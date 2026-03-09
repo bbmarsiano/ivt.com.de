@@ -13,6 +13,9 @@ import { useLanguage } from '@/lib/i18n';
 import { ProjectIndustry, ProjectStatus } from '@/lib/mock/projects';
 import { Search } from 'lucide-react';
 
+const selectTriggerClass =
+  'bg-white text-gray-900 border border-gray-600 rounded-md appearance-none pr-8 relative [&>svg]:absolute [&>svg]:right-3 [&>svg]:top-1/2 [&>svg]:-translate-y-1/2 [&>svg]:text-gray-500 [&>svg]:pointer-events-none';
+
 export interface FilterState {
   search: string;
   industry: ProjectIndustry | 'all';
@@ -45,31 +48,31 @@ export function ProjectFilters({ filters, onFilterChange }: ProjectFiltersProps)
   };
 
   return (
-    <div className="bg-card rounded-lg border p-6 mb-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="lg:col-span-2">
-          <Label htmlFor="search" className="mb-2 block text-sm font-medium">
+    <div className="ivt-frame rounded-lg border border-white/10 bg-transparent p-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
+        <div className="lg:max-w-[220px]">
+          <Label htmlFor="search" className="mb-2 block text-sm font-medium text-white">
             {t.pages.projects.searchPlaceholder}
           </Label>
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-300" />
             <Input
               id="search"
               type="text"
               placeholder={t.pages.projects.searchPlaceholder}
               value={filters.search}
               onChange={(e) => handleSearchChange(e.target.value)}
-              className="pl-10"
+              className="pl-10 text-white placeholder:text-gray-300"
             />
           </div>
         </div>
 
         <div>
-          <Label htmlFor="industry" className="mb-2 block text-sm font-medium">
+          <Label htmlFor="industry" className="mb-2 block text-sm font-medium text-white">
             {t.pages.projects.filterIndustry}
           </Label>
           <Select value={filters.industry} onValueChange={handleIndustryChange}>
-            <SelectTrigger id="industry">
+            <SelectTrigger id="industry" className={selectTriggerClass}>
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -88,11 +91,11 @@ export function ProjectFilters({ filters, onFilterChange }: ProjectFiltersProps)
         </div>
 
         <div>
-          <Label htmlFor="status" className="mb-2 block text-sm font-medium">
+          <Label htmlFor="status" className="mb-2 block text-sm font-medium text-white">
             {t.pages.projects.filterStatus}
           </Label>
           <Select value={filters.status} onValueChange={handleStatusChange}>
-            <SelectTrigger id="status">
+            <SelectTrigger id="status" className={selectTriggerClass}>
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -102,15 +105,13 @@ export function ProjectFilters({ filters, onFilterChange }: ProjectFiltersProps)
             </SelectContent>
           </Select>
         </div>
-      </div>
 
-      <div className="mt-4 flex justify-end">
         <div className="w-full md:w-48">
-          <Label htmlFor="sort" className="mb-2 block text-sm font-medium">
+          <Label htmlFor="sort" className="mb-2 block text-sm font-medium text-white">
             {t.pages.projects.sortBy}
           </Label>
           <Select value={filters.sortBy} onValueChange={handleSortChange}>
-            <SelectTrigger id="sort">
+            <SelectTrigger id="sort" className={selectTriggerClass}>
               <SelectValue />
             </SelectTrigger>
             <SelectContent>

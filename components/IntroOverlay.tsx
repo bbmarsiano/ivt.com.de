@@ -69,10 +69,10 @@ export function IntroOverlay() {
             {!hasError ? (
               <>
                 <div className="relative flex h-full w-full items-center justify-center px-4">
-                  <div className="relative w-[min(90vw,calc(90vh*9/16))] max-h-[90vh] aspect-[9/16]">
+                  <div className="relative w-[min(92vw,calc(92vh*16/9))] max-h-[92vh] aspect-[16/9]">
                     <video
                       ref={videoRef}
-                      className="w-full h-full object-contain"
+                      className="w-full h-full object-cover rounded-xl"
                       muted
                       playsInline
                       onCanPlay={handleVideoCanPlay}

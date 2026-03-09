@@ -36,7 +36,7 @@ export default function ImpactPage() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="mb-6">{t.pages.impact.title}</h1>
+            <h1 className="section-title mb-6">{t.pages.impact.title}</h1>
             <p className="text-xl text-muted-foreground">
               {t.pages.impact.subtitle}
             </p>
@@ -74,16 +74,20 @@ export default function ImpactPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="prose prose-lg max-w-4xl mx-auto"
+            className="max-w-4xl mx-auto"
           >
-            <h2>
-              {language === 'de' ? 'Unsere Wirkung' : 'Our Impact'}
-            </h2>
-            <p>
-              {language === 'de'
-                ? 'Innovation Valley Thüringen hat seit seiner Gründung einen bedeutenden Einfluss auf die regionale Innovationslandschaft. Durch die Unterstützung von Start-ups, die Förderung von Forschungsprojekten und die Vermittlung von Investitionen tragen wir zur wirtschaftlichen Entwicklung der Region bei.'
-                : 'Innovation Valley Thuringia has had a significant impact on the regional innovation landscape since its inception. By supporting startups, promoting research projects, and facilitating investments, we contribute to the economic development of the region.'}
-            </p>
+            <div className="ivt-frame rounded-lg border border-white/10 bg-black/20 px-6 py-6 md:px-8 md:py-8">
+              <div className="border-l-4 border-primary pl-6 md:pl-8">
+                <h2 className="section-title mb-4">
+                  {language === 'de' ? 'Unsere Wirkung' : 'Our Impact'}
+                </h2>
+                <p className="text-base leading-relaxed text-white/70 md:text-xl">
+                  {language === 'de'
+                    ? 'Innovation Valley Thüringen hat seit seiner Gründung einen bedeutenden Einfluss auf die regionale Innovationslandschaft. Durch die Unterstützung von Start-ups, die Förderung von Forschungsprojekten und die Vermittlung von Investitionen tragen wir zur wirtschaftlichen Entwicklung der Region bei.'
+                    : 'Innovation Valley Thuringia has had a significant impact on the regional innovation landscape since its inception. By supporting startups, promoting research projects, and facilitating investments, we contribute to the economic development of the region.'}
+                </p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>

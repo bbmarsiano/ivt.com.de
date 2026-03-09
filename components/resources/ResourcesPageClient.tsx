@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/lib/i18n';
 import type { Resource } from '@/lib/types/content';
@@ -42,6 +42,14 @@ export function ResourcesPageClient({
   const [videoEmbedUrl, setVideoEmbedUrl] = useState<string | null>(null);
   const [videoModalTitle, setVideoModalTitle] = useState<string>('');
   const [videoModalMessage, setVideoModalMessage] = useState<string | null>(null);
+  const resourcesListRef = useRef<HTMLDivElement>(null);
+
+  const scrollToResourcesList = () => {
+    setActiveCategory('all');
+    setTimeout(() => {
+      resourcesListRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  };
 
   const categories = [
     {
@@ -191,7 +199,7 @@ export function ResourcesPageClient({
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="mb-6">{t.pages.resources.title}</h1>
+            <h1 className="section-title mb-6">{t.pages.resources.title}</h1>
             <p className="text-xl text-muted-foreground">
               {t.pages.resources.subtitle}
             </p>
@@ -209,7 +217,8 @@ export function ResourcesPageClient({
             <Button
               variant="outline"
               size="sm"
-              onClick={() => setActiveCategory('all')}
+              onClick={scrollToResourcesList}
+              className="hover:bg-transparent hover:text-white border-white/30"
             >
               {language === 'en' ? 'View all resources' : 'Alle Ressourcen ansehen'}
             </Button>
@@ -261,7 +270,7 @@ export function ResourcesPageClient({
       </section>
 
       {/* Lists */}
-      <section className="section-spacing pt-0">
+      <section id="resources-list" ref={resourcesListRef} className="section-spacing pt-0">
         <div className="section-container space-y-10">
           <AnimatePresence initial={false}>
             {(showAll || activeCategory === 'document') && (
@@ -285,7 +294,7 @@ export function ResourcesPageClient({
                     {filteredByKind.document.map((resource) => (
                       <li key={resource.id} className="flex items-center gap-3">
                         <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                        <span className="text-sm">
+                        <span className="text-sm text-white">
                           {getResourceTitle(resource)}
                         </span>
                       </li>
@@ -318,7 +327,7 @@ export function ResourcesPageClient({
                         <button
                           type="button"
                           onClick={() => openVideoModal(resource)}
-                          className="flex items-center gap-3 text-left w-full text-sm text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+                          className="flex items-center gap-3 text-left w-full text-sm text-white hover:text-white/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
                         >
                           <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                           <span className="text-sm">
@@ -353,7 +362,7 @@ export function ResourcesPageClient({
                     {filteredByKind.guide.map((resource) => (
                       <li key={resource.id} className="flex items-center gap-3">
                         <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                        <span className="text-sm">
+                        <span className="text-sm text-white">
                           {getResourceTitle(resource)}
                         </span>
                       </li>
@@ -390,7 +399,7 @@ export function ResourcesPageClient({
                       {unlinkedPublicDownloads.map((resource) => (
                         <li key={resource.id} className="flex items-center gap-3">
                           <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                          <span className="text-sm">
+                          <span className="text-sm text-white">
                             {getResourceTitle(resource)}
                           </span>
                         </li>
@@ -431,7 +440,7 @@ export function ResourcesPageClient({
                                 className="flex items-center gap-3"
                               >
                                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                                <span className="text-sm">
+                                <span className="text-sm text-white">
                                   {getResourceTitle(resource)}
                                 </span>
                               </li>
@@ -465,7 +474,7 @@ export function ResourcesPageClient({
               />
             </div>
           ) : (
-            <p className="mt-4 text-sm text-muted-foreground">
+            <p className="mt-4 text-sm text-white">
               {videoModalMessage}
             </p>
           )}

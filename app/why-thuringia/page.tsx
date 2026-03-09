@@ -53,7 +53,7 @@ export default function WhyThuringiaPage() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="mb-6">{t.pages.whyThuringia.title}</h1>
+            <h1 className="section-title mb-6">{t.pages.whyThuringia.title}</h1>
             <p className="text-xl text-muted-foreground">
               {t.pages.whyThuringia.subtitle}
             </p>
