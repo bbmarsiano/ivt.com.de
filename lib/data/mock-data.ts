@@ -254,6 +254,7 @@ export interface AboutContent {
   mission_en: string;
   vision_de: string;
   vision_en: string;
+  embeddedVideoUrl?: string | null;
   createdAt: string;
   updatedAt: string;
 }

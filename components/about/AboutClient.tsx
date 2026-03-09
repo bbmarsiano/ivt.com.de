@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { useLanguage } from '@/lib/i18n';
 import type { TeamMember, AboutContent } from '@/lib/types/content';
 import { Card, CardContent } from '@/components/ui/card';
@@ -16,39 +16,61 @@ interface AboutClientProps {
 export function AboutClient({ aboutContent, team }: AboutClientProps) {
   const { language } = useLanguage();
   const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
+  const reduceMotion = useReducedMotion();
 
   const values = [
     {
       icon: Target,
-      title: { de: 'Mission', en: 'Mission' },
+      title: { de: 'Innovation', en: 'Innovation' },
       description: {
-        de: 'Thüringen als führenden Innovationsstandort etablieren.',
-        en: 'Establish Thuringia as a leading innovation hub.',
+        de: 'Förderung technologischer Fortschritte.',
+        en: 'Driving technological advancements.',
       },
     },
     {
       icon: Users,
-      title: { de: 'Zusammenarbeit', en: 'Collaboration' },
+      title: { de: 'Integration', en: 'Integration' },
       description: {
-        de: 'Förderung von Partnerschaften zwischen Wirtschaft, Wissenschaft und Politik.',
-        en: 'Fostering partnerships between business, science, and government.',
+        de: 'Unternehmen für gemeinsamen Erfolg zusammenführen.',
+        en: 'Uniting companies for shared success.',
       },
     },
     {
       icon: Lightbulb,
-      title: { de: 'Innovation', en: 'Innovation' },
+      title: { de: 'Quality', en: 'Quality' },
       description: {
-        de: 'Unterstützung innovativer Ideen und Technologien.',
-        en: 'Supporting innovative ideas and technologies.',
+        de: "Verpflichtet zu 'Made in Germany'-Standards.",
+        en: "Committed to 'Made in Germany' standards.",
       },
     },
     {
       icon: Award,
-      title: { de: 'Exzellenz', en: 'Excellence' },
+      title: { de: 'Sustainability', en: 'Sustainability' },
       description: {
-        de: 'Höchste Qualitätsstandards in allen Bereichen.',
-        en: 'Highest quality standards in all areas.',
+        de: 'Umweltfreundliche Praktiken in allen Projekten.',
+        en: 'Eco-friendly practices in all projects.',
       },
+    },
+  ];
+
+  const milestonesHeading = { de: 'Meilensteine', en: 'Milestones' };
+
+  const milestones = [
+    {
+      year: '2024',
+      title: { de: 'Start von Innovation Valley Thüringen', en: 'Launch of Innovation Valley Thüringen' },
+    },
+    {
+      year: '2025',
+      title: { de: 'Erster Projektabschluss', en: 'First project completion' },
+    },
+    {
+      year: '2026',
+      title: { de: 'Ausbau strategischer Partnerschaften', en: 'Expansion of strategic partnerships' },
+    },
+    {
+      year: '2030',
+      title: { de: 'Etablierter integrierter Industrie-Hub', en: 'Established integrated industrial hub' },
     },
   ];
 
@@ -62,6 +84,25 @@ export function AboutClient({ aboutContent, team }: AboutClientProps) {
 
   // Use Directus hero image if available, otherwise fallback
   const heroImageUrl = aboutContent.heroImageUrl || ABOUT_HERO_FALLBACK_IMAGE;
+
+  // Convert YouTube watch/shorts URL to embed URL; pass through other embeddable URLs
+  function getEmbedVideoUrl(url: string | null | undefined): string | null {
+    if (!url || !url.trim()) return null;
+    const trimmed = url.trim();
+    const youtuBe = trimmed.match(/^https?:\/\/youtu\.be\/([^?&/]+)/i);
+    if (youtuBe?.[1]) return `https://www.youtube.com/embed/${youtuBe[1]}`;
+    const watch = trimmed.match(/[?&]v=([^&]+)/i);
+    if (watch?.[1]) return `https://www.youtube.com/embed/${watch[1]}`;
+    const embed = trimmed.match(/^https?:\/\/(www\.)?youtube\.com\/embed\/([^?&/]+)/i);
+    if (embed?.[2]) return `https://www.youtube.com/embed/${embed[2]}`;
+    const shorts = trimmed.match(/^https?:\/\/(www\.)?youtube\.com\/shorts\/([^?&/]+)/i);
+    if (shorts?.[2]) return `https://www.youtube.com/embed/${shorts[2]}`;
+    // Other CDN/embed URLs: use as-is if they look like iframe src
+    if (/^https?:\/\//i.test(trimmed)) return trimmed;
+    return null;
+  }
+
+  const embedVideoSrc = getEmbedVideoUrl(aboutContent.embeddedVideoUrl ?? null);
 
   return (
     <div className="flex flex-col">
@@ -144,6 +185,100 @@ export function AboutClient({ aboutContent, team }: AboutClientProps) {
               </motion.div>
             ))}
           </div>
+
+          {/* Milestones timeline — premium panel */}
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+            whileInView={reduceMotion ? false : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mt-16"
+          >
+            <div className="ivt-frame rounded-lg border border-white/10 bg-black/30 px-6 py-8 md:px-8 md:py-10">
+              <h2 className="section-title mb-10 text-center">
+                {milestonesHeading[language]}
+              </h2>
+
+              {/* Desktop: horizontal timeline with line-draw */}
+              <div className="hidden md:block relative">
+                {/* Subtle highlight behind main line */}
+                <div className="absolute left-0 right-0 top-8 h-px bg-white/5" aria-hidden />
+                <motion.div
+                  className="absolute left-0 right-0 top-8 h-px bg-white/20 origin-left"
+                  initial={reduceMotion ? false : { scaleX: 0 }}
+                  whileInView={reduceMotion ? false : { scaleX: 1 }}
+                  transition={{ duration: 1.2, ease: 'easeOut' }}
+                  viewport={{ once: true }}
+                  aria-hidden
+                />
+                <div className="grid grid-cols-4 gap-4 relative">
+                  {milestones.map((m, i) => (
+                    <motion.div
+                      key={m.year}
+                      initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                      whileInView={reduceMotion ? false : { opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 + i * 0.12, ease: 'easeOut' }}
+                      viewport={{ once: true }}
+                      className="flex flex-col items-center text-center group"
+                    >
+                      <motion.div
+                        initial={reduceMotion ? false : { scale: 0 }}
+                        whileInView={reduceMotion ? false : { scale: 1 }}
+                        transition={{ duration: 0.4, delay: 0.35 + i * 0.12, ease: 'easeOut' }}
+                        viewport={{ once: true }}
+                        className="rounded-full w-5 h-5 border-2 border-white/20 flex-shrink-0 mb-4 relative z-10 flex items-center justify-center bg-black/80 shadow-[0_0_16px_rgba(122,0,20,0.2)] group-hover:shadow-[0_0_20px_rgba(122,0,20,0.35)] transition-shadow duration-300"
+                      >
+                        <span className="rounded-full w-1.5 h-1.5 bg-primary" aria-hidden />
+                      </motion.div>
+                      <div className="ivt-frame rounded-lg border border-white/10 bg-black/20 px-4 py-4 w-full transition-all duration-200 group-hover:border-white/20">
+                        <p className="text-white font-bold text-lg mb-1">{m.year}</p>
+                        <p className="text-white/60 text-sm leading-snug">{m.title[language]}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Mobile: vertical timeline with line-draw */}
+              <div className="md:hidden relative pl-6">
+                <div className="absolute left-[9px] top-4 bottom-4 w-px bg-white/5" aria-hidden />
+                <motion.div
+                  className="absolute left-[9px] top-4 bottom-4 w-px bg-white/20 origin-top"
+                  initial={reduceMotion ? false : { scaleY: 0 }}
+                  whileInView={reduceMotion ? false : { scaleY: 1 }}
+                  transition={{ duration: 1.2, ease: 'easeOut' }}
+                  viewport={{ once: true }}
+                  aria-hidden
+                />
+                <div className="space-y-6">
+                  {milestones.map((m, i) => (
+                    <motion.div
+                      key={m.year}
+                      initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                      whileInView={reduceMotion ? false : { opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 + i * 0.12, ease: 'easeOut' }}
+                      viewport={{ once: true }}
+                      className="flex gap-4 relative group"
+                    >
+                      <motion.div
+                        initial={reduceMotion ? false : { scale: 0 }}
+                        whileInView={reduceMotion ? false : { scale: 1 }}
+                        transition={{ duration: 0.4, delay: 0.35 + i * 0.12, ease: 'easeOut' }}
+                        viewport={{ once: true }}
+                        className="absolute -left-6 top-2 rounded-full w-5 h-5 border-2 border-white/20 flex-shrink-0 z-10 flex items-center justify-center bg-black/80 shadow-[0_0_16px_rgba(122,0,20,0.2)] group-hover:shadow-[0_0_20px_rgba(122,0,20,0.35)] transition-shadow duration-300"
+                      >
+                        <span className="rounded-full w-1.5 h-1.5 bg-primary" aria-hidden />
+                      </motion.div>
+                      <div className="ivt-frame rounded-lg border border-white/10 bg-black/20 px-4 py-4 flex-1 transition-all duration-200 group-hover:border-white/20">
+                        <p className="text-white font-bold text-lg mb-1">{m.year}</p>
+                        <p className="text-white/60 text-sm leading-snug">{m.title[language]}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -241,6 +376,35 @@ export function AboutClient({ aboutContent, team }: AboutClientProps) {
                 );
               })}
             </div>
+          </div>
+        </section>
+      )}
+
+      {embedVideoSrc && (
+        <section className="section-spacing relative overflow-hidden">
+          <div className="section-container">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="section-title mb-8 text-center">
+                A Day in Innovation Valley
+              </h2>
+              <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden border border-white/10 bg-black/20">
+                <div className="aspect-video w-full">
+                  <iframe
+                    src={embedVideoSrc}
+                    title="A Day in Innovation Valley"
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </motion.div>
           </div>
         </section>
       )}

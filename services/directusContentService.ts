@@ -546,7 +546,7 @@ class DirectusContentService {
   async getAboutContent(): Promise<AboutContent | null> {
     try {
       // Singleton: fetch with explicit fields, include hero_image_file
-      const endpoint = `/items/about?fields=id,title_de,title_en,intro_de,intro_en,mission_de,mission_en,vision_de,vision_en,hero_image_file,updatedAt,createdAt`;
+      const endpoint = `/items/about?fields=id,title_de,title_en,intro_de,intro_en,mission_de,mission_en,vision_de,vision_en,hero_image_file,embeded_video_url,updatedAt,createdAt`;
       const response = await this.fetchDirectus<any>(endpoint);
       
       // Handle both shapes: {data: [...]} or {data: {...}}
@@ -577,6 +577,9 @@ class DirectusContentService {
         );
       }
       
+      const rawVideoUrl = item.embeded_video_url ?? null;
+      const embeddedVideoUrl = typeof rawVideoUrl === 'string' && rawVideoUrl.trim() ? rawVideoUrl.trim() : null;
+
       return {
         id: item.id,
         title_de: item.title_de || '',
@@ -589,6 +592,7 @@ class DirectusContentService {
         vision_en: item.vision_en || '',
         heroImageFile: typeof heroImageFile === 'string' ? heroImageFile : (typeof heroImageFile === 'object' && heroImageFile?.id ? heroImageFile.id : null),
         heroImageUrl,
+        embeddedVideoUrl,
         createdAt: item.createdAt || new Date().toISOString(),
         updatedAt: item.updatedAt || new Date().toISOString(),
       };

@@ -220,6 +220,8 @@ export interface AboutContent {
   vision_en: string;
   heroImageFile?: string | null; // Raw Directus file UUID
   heroImageUrl?: string | null; // Computed URL for rendering
+  /** From Directus "Embeded Video URL" - YouTube watch URL or embed URL */
+  embeddedVideoUrl?: string | null;
   createdAt: string;
   updatedAt: string;
 }

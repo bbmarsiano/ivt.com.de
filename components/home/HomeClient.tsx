@@ -199,10 +199,10 @@ export function HomeClient({
           </div>
           <FeaturedProjectsCarousel projects={featuredProjects} />
           <div className="flex justify-center mt-12">
-            <Button asChild size="lg" variant="outline">
+            <Button asChild size="lg" variant="outline" className="group bg-white text-black border border-gray-400 hover:bg-transparent hover:text-white hover:border-white">
               <Link href="/projects" className="inline-flex items-center gap-2">
                 {t.pages.home.featuredProjects.viewAll}
-                <ArrowRight className="ivt-icon-md" />
+                <ArrowRight className="ivt-icon-md text-current transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
           </div>
@@ -224,6 +224,7 @@ export function HomeClient({
         </div>
       </section>
 
+      {/* Latest News - temporarily hidden
       <section className="section-spacing relative overflow-hidden">
         <div className="section-container relative z-10">
           <div className="ivt-frame rounded-lg border border-white/10 bg-black/20 px-6 py-8 md:px-8">
@@ -237,7 +238,9 @@ export function HomeClient({
           </div>
         </div>
       </section>
+      */}
 
+      {/* Upcoming Events - temporarily hidden
       <section className="section-spacing relative overflow-hidden">
         <div className="section-container relative z-10">
           <div className="ivt-frame rounded-lg border border-white/10 bg-black/20 px-6 py-8 md:px-8">
@@ -251,6 +254,7 @@ export function HomeClient({
           </div>
         </div>
       </section>
+      */}
 
       <section className="section-spacing relative overflow-hidden">
         <div className="section-container">
@@ -268,10 +272,10 @@ export function HomeClient({
             <p className="section-subtitle text-xl mb-8">
               {t.pages.home.ctaSection.description}
             </p>
-            <Button size="lg" variant="secondary" asChild>
+            <Button size="lg" variant="secondary" asChild className="group bg-white text-black border border-gray-400 hover:bg-transparent hover:text-white hover:border-white">
               <Link href="/about" className="inline-flex items-center gap-2">
                 {t.pages.home.ctaSection.button}
-                <ArrowRight className="ivt-icon-md" />
+                <ArrowRight className="ivt-icon-md text-current transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
           </motion.div>
