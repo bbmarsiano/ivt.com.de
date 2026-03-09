@@ -84,7 +84,7 @@ export function ProjectDetailClient({ project, slug, resources }: ProjectDetailC
               </Button>
 
               <div className="flex flex-wrap gap-3 mb-4">
-                <Badge variant="outline" className="text-sm">
+                <Badge variant="outline" className="text-sm text-white">
                   {statusLabel}
                 </Badge>
                 <Badge variant="secondary" className="text-sm">
@@ -98,7 +98,7 @@ export function ProjectDetailClient({ project, slug, resources }: ProjectDetailC
                 )}
               </div>
 
-              <h1 className="mb-6">{title}</h1>
+              <h1 className="section-title mb-6">{title}</h1>
               <p className="text-xl text-muted-foreground leading-relaxed mb-6">
                 {summary}
               </p>
@@ -120,12 +120,12 @@ export function ProjectDetailClient({ project, slug, resources }: ProjectDetailC
                   transition={{ duration: 0.8 }}
                   viewport={{ once: true }}
                 >
-                  <h2 className="text-3xl font-semibold mb-6">
+                  <h2 className="section-title text-3xl font-semibold mb-6">
                     {t.pages.projects.projectDescription}
                   </h2>
-                  <div className="prose prose-lg max-w-none">
+                  <div className="rounded-lg border border-gray-200 bg-white p-6">
                     {description.split('\n\n').map((paragraph, index) => (
-                      <p key={index} className="text-muted-foreground leading-relaxed mb-4">
+                      <p key={index} className="text-gray-800 leading-relaxed mb-4 last:mb-0">
                         {paragraph}
                       </p>
                     ))}
@@ -138,7 +138,7 @@ export function ProjectDetailClient({ project, slug, resources }: ProjectDetailC
                   transition={{ duration: 0.8 }}
                   viewport={{ once: true }}
                 >
-                  <h2 className="text-3xl font-semibold mb-6">
+                  <h2 className="section-title text-3xl font-semibold mb-6">
                     {t.pages.projects.imageGallery}
                   </h2>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -165,7 +165,7 @@ export function ProjectDetailClient({ project, slug, resources }: ProjectDetailC
                   transition={{ duration: 0.8 }}
                   viewport={{ once: true }}
                 >
-                  <h2 className="text-3xl font-semibold mb-6">
+                  <h2 className="section-title text-3xl font-semibold mb-6">
                     {t.pages.projects.eligibility}
                   </h2>
                   <Card>
@@ -188,7 +188,7 @@ export function ProjectDetailClient({ project, slug, resources }: ProjectDetailC
                   transition={{ duration: 0.8 }}
                   viewport={{ once: true }}
                 >
-                  <h2 className="text-3xl font-semibold mb-6">
+                  <h2 className="section-title text-3xl font-semibold mb-6">
                     {language === 'de' ? 'Ressourcen' : 'Resources'}
                   </h2>
                   {resources.length > 0 ? (
@@ -315,7 +315,7 @@ export function ProjectDetailClient({ project, slug, resources }: ProjectDetailC
                   transition={{ duration: 0.8 }}
                   viewport={{ once: true }}
                 >
-                  <h2 className="text-3xl font-semibold mb-6">
+                  <h2 className="section-title text-3xl font-semibold mb-6">
                     {t.pages.projects.coordinator}
                   </h2>
                   <Card>
