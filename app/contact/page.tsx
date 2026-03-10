@@ -7,7 +7,23 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+import { Mail, Phone, MapPin, Linkedin, Twitter } from 'lucide-react';
+
+const THURINGIA_MAP_EMBED_SRC =
+  typeof process !== 'undefined' && process.env?.NEXT_PUBLIC_CONTACT_MAP_EMBED_URL
+    ? process.env.NEXT_PUBLIC_CONTACT_MAP_EMBED_URL
+    : 'https://www.openstreetmap.org/export/embed.html?bbox=9.5%2C50.0%2C12.5%2C51.8&layer=map&marker=51.0%2C11.0';
+
+const SOCIAL_LINKS = [
+  { key: 'linkedin', href: 'https://www.linkedin.com/company/innovation-valley-thueringen', icon: Linkedin, label: 'LinkedIn' },
+  { key: 'x', href: 'https://x.com/innovationvalley', icon: Twitter, label: 'X (Twitter)' },
+];
 
 export default function ContactPage() {
   const { language, t } = useLanguage();
@@ -125,6 +141,76 @@ export default function ContactPage() {
               </Card>
             </motion.div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="mt-12"
+          >
+            <h2 className="section-title text-2xl font-semibold mb-4">
+              {t.pages.contact.mapHeading}
+            </h2>
+            <div className="rounded-lg border border-white/10 overflow-hidden bg-black/20 aspect-video max-w-4xl">
+              <iframe
+                title="Thuringia region map"
+                src={THURINGIA_MAP_EMBED_SRC}
+                className="w-full h-full min-h-[280px]"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="mt-12"
+          >
+            <h2 className="section-title text-2xl font-semibold mb-4">
+              {t.pages.contact.socialHeading}
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              {SOCIAL_LINKS.map(({ key, href, icon: Icon, label }) => (
+                <a
+                  key={key}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-md border border-white/20 bg-white/5 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10 hover:text-white"
+                >
+                  <Icon className="h-4 w-4" />
+                  {label}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="mt-12 max-w-3xl"
+          >
+            <h2 className="section-title text-2xl font-semibold mb-4">
+              {t.pages.contact.faqHeading}
+            </h2>
+            <Accordion type="single" collapsible className="rounded-lg border border-white/10 bg-black/20">
+              <AccordionItem value="faq1" className="border-white/10 px-4">
+                <AccordionTrigger className="text-left text-white hover:no-underline hover:text-white/90 py-4">
+                  {t.pages.contact.faq1Q}
+                </AccordionTrigger>
+                <AccordionContent className="text-white/80 pb-4">
+                  {t.pages.contact.faq1A}
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </motion.div>
         </div>
       </section>
     </div>
